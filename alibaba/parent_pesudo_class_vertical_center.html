@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style>
+    .boxA {
+      width: 500px;
+      height: 500px;
+      background-color: green;
+      text-align: center;
+    }
+    .boxA:after {
+      content: ""; /*content属性可以空，但一定要有，*/
+      height: 100%;
+      vertical-align: middle;
+      width: 1px;
+      margin-left: -1px;
+      display: inline-block;
+    }
+    .boxB {
+      max-width: 300px;
+      max-height: 300px;
+      background-color: blue;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body>
+<div class="boxA">
+  <div class="boxB">may be amazing</div>
+</div>
+</body>
+</html>

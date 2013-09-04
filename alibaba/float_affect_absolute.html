@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style>
+    #anotherContainer {
+      position: relative;
+      outline: 4px solid red;
+      width: auto;
+      height: auto;
+      display: inline-block;
+    }
+
+    .main{
+      border: 1px solid #f00;
+      position: absolute;
+    }
+
+    .left{
+      float: left;
+      border: 1px solid #0f0;
+      padding: 20px;
+    }
+
+    .right{
+      float: right;
+      border: 1px solid #00f;
+      padding: 20px;
+    }​
+  </style>
+</head>
+<body>
+  <div id="anotherContainer">
+    Outercontainer
+    <div class="main">
+     <div class="left">Left</div>
+      <div class="right">Right</div>
+    </div>
+  </div>
+</body>
+</html>

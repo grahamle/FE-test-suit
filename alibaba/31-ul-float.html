@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style>
+    /*ul {
+      float:left;
+    }
+    li {
+      list-style: none;
+      margin: 10px;
+    }
+    ul:first-child li:first-child {
+      float: right;
+    }
+    ul li:nth-child(odd) {
+      float:left;
+      clear:both;
+    }
+    ul li:nth-child(even) {
+      float: right;
+    }*/
+    ul, li{
+      float:left;
+    }
+    li {
+      list-style: none;
+      margin: 10px;
+    }
+    ul:first-child li:first-child {
+      float: right;
+    }
+    ul:first-child li:last-child {
+      float: left;
+    }
+    ul:last-child li:nth-child(3) {
+      clear:both;
+    }
+  </style>
+</head>
+<body>
+<ul>
+  <li>
+    <a href="#"><img width="100" height="100" src="a.jpg" /></a>
+    <p>文字一</p>
+  </li>
+  <li>
+    <a href="#"><img width="100" height="100" src="a.jpg" /></a>
+    <p>文字二</p>
+  </li>
+</ul>
+<ul>
+  <li>文字三</li>
+  <li>文字四</li>
+  <li>文字五</li>
+  <li>文字六</li>
+</ul>
+</body>
+</html>

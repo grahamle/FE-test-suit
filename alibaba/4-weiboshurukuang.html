@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style>
+    #tweet-box-container {
+      width: 520px;
+    }
+    #tweet-box-header {
+      margin:20px;
+    }
+    .right, button {
+      float: right;
+    }
+    button {
+      margin-top: 20px;
+      margin-right: 20px;
+    }
+  </style>
+  <script>
+    window.onload = init;
+
+    function init() {
+      var textarea = document.getElementById("tweet-box");
+      var counter = document.getElementById("counter");
+      var button = document.getElementById("tweeting-button");
+      button.addEventListener('mousedown',clickHandler)
+      textarea.addEventListener('keyup', countChar);
+
+      function clickHandler(){
+        button.disabled =true;
+        return true;
+      }
+      function countChar (){
+        var max = 20;
+        counter.innerHTML = max - textarea.value.length;
+        if ((max - textarea.value.length) < 10) {
+          counter.style.color = "red";
+        } else {
+          counter.style.color = "black";
+        }
+        if (textarea.value.length > max) {
+          textarea.value = textarea.value.substring(0, max);
+          counter.innerHTML = 0;
+//          document.getElementById("tweeting-button").disabled = true;
+//          confirm("You can't enter any more!");
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+<div id="tweet-box-container">
+
+  <div id="tweet-box-header">
+    <label for="tweet-box" class="doing">What's happening?</label>
+    <span id="counter" class="right">20</span>
+  </div>
+  <div id="editor">
+    <textarea id="tweet-box" name="tweet-box" style="resize: none; height: 55px; width: 505px;"></textarea>
+  </div>
+
+  <div>
+    <button id="tweeting-button" type="submit" >Tweet</button>
+  </div>
+
+</div>
+</body>
+</html>

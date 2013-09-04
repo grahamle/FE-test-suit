@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<HTML>
+<HEAD>
+  <TITLE>JS实现字数输入限制百分比显示——素材集市</TITLE>
+</HEAD>
+<BODY>
+  <style>
+    .progress{
+      width: 1px;
+      height: 14px;
+      color: white;
+      font-size: 12px;
+      overflow: hidden;
+      background-color: navy;
+      padding-left: 5px;
+    }
+  </style>
+<script type="text/JavaScript">
+
+  function textCounter(field,counter,maxlimit,linecounter) {
+    // text width//
+    var fieldWidth =  parseInt(field.offsetWidth);
+    var charcnt = field.value.length;
+    var leftChar = document.getElementById("counter");
+
+    // trim the extra text
+    if (charcnt > maxlimit) {
+      field.value = field.value.substring(0, maxlimit);
+      leftChar.innerHTML = 0;
+    }
+
+    else {
+      // progress bar percentage
+      leftChar.innerHTML = maxlimit - charcnt;
+      var percentage = parseInt(100 - (( maxlimit - charcnt) * 100)/maxlimit) ;
+      document.getElementById(counter).style.width =  parseInt((fieldWidth*percentage)/100)+"px";
+      document.getElementById(counter).innerHTML="已输: "+percentage+"%"
+      // color correction on style from CCFFF -> CC0000
+      setcolor(document.getElementById(counter),percentage,"background-color");
+    }
+  }
+
+  function setcolor(obj,percentage,prop){
+    obj.style[prop] = "rgb(80%,"+(100-percentage)+"%,"+(100-percentage)+"%)";
+  }
+</script>
+<p>剩下：<span id="counter">120</span>字节</P>
+<form>
+  <textarea rows="5" cols="40" name="maxcharfield" id="maxcharfield" onKeyDown="textCounter(this,'progressbar',120)" onKeyUp="textCounter(this,'progressbar',120)" onFocus="textCounter(this,'progressbar',120)"></textarea><br />
+  <div id="progressbar" class="progress"></div>
+  <!--<script>textCounter(document.getElementById("maxcharfield"),"progressbar",120)</script>-->
+</form>
+</BODY>
+</HTML>

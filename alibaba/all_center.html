@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>Demo:: vertical align: middle</title>
+  <meta lang="en" name="author" content="Spenser Lee" />
+  <meta lang="en" name="copyright" content="(c)2006 Liberty Studio" />
+  <style media="screen" type="text/css">
+    html,body,div,h1,h2,pre,dd,ol{margin: 0;padding: 0;border: 0}
+    html{min-width: 779px}
+    body{background: #fff;color: #596480;text-align: center}
+    div#main-wrapper{padding: 12px 5px;width: 769px;margin: 0 auto}
+    div,code,p,h1,h2,address,dt,dd,li{font: normal 12px/1.5em Tahoma,"Lucida Grande",Helvetica,Verdana,Lucida,Arial,"Arial Unicode",sans-serif,serif}
+    h1{font-size: 22px;font-weight: bold;border-left: 12px solid #324f96;background: #e0eaf4;color: #4868a9;height: 4em;line-height: 4em;padding: 0 12px;overflow: hidden; text-align: left}
+    h2{font-size: 12px;font-weight: bold;background: #c0014e;color: #fff;height: 2.5em;line-height: 2.5em;padding: 0 24px;overflow: hidden;margin: 12px 0;text-align: left}
+    h2 a{color: #fff;background: transparent}
+    h2 a:hover{text-decoration: none}
+    p{margin: 6px 0;padding: 0 12px 0 24px;text-indent: 2em;text-align: left}
+    p.snap-back{text-align: right}
+    code{display: block;font-family: "Courier New", Courier, monospace, mono, serif;margin: 12px auto;padding: 12px;border: 1px solid #596480;color: inherit;background: #f6f6f6;text-align: left;white-space: pre;width: 350px}
+    strong{font-weight: bold}
+    em{font-style: italic}
+    address{display: block;padding: 0 12px;margin: 12px 0;text-align: right}
+    dl{margin: 6px 0;padding: 0 12px 0 24px;text-align: left}
+    dt{margin: 0;text-indent: 2em;font-weight: bold}
+    dd{margin-left: 24px;text-indent: 2em}
+    li{list-style: square inside none;text-align: left}
+    ol#table-of-content{padding-left: 24px}
+    a{color: #c0014e;background: transparent;text-decoration: none}
+    a:hover{text-decoration: underline}
+    div.demo{width: 400px;margin: 12px auto;border: 1px solid #596480;color: inherit;background: #ffc}
+    div.demo p{text-align: left;margin: 24px;text-indent: 0}
+    p#demo-1{margin: 12px auto;padding: 0 12px;width: 400px;text-indent: 0;border: 1px solid #596480;color: inherit;background: #ffc;line-height: 4em;height: 4em;overflow: hidden}
+    div#demo-2{padding: 50px 0}
+    div#demo-4, div#demo-5{height: 300px;position: relative}
+    div#demo-4 div, div#demo-5 div{position: absolute;top: 50%;left: 0}
+    div#demo-4 p, div#demo-5 p{position: relative;top: -50%}
+    div#demo-3{display: table;height: 300px;border-collapse: collapse}
+    div#main-wrapper>div#demo-5{position: static;display:table}
+    div#main-wrapper>div#demo-5>div{display:table-cell;vertical-align:middle;position:static}
+    div#demo-3>div{display: table-row}
+    div#demo-3>div>div{display: table-cell;vertical-align: middle}
+    span.property{font-family: "Courier New", Courier, monospace, mono, serif;border-bottom: 1px dotted #596480;background: #ffc;color: #c0014e}
+    p.copyright{line-height: 3em;text-align: center;border-top: 1px dotted #596480}
+  </style>
+</head>
+<body>
+<div id="main-wrapper">
+  <h1>Demo of middled vertical align</h1>
+  <address>
+    Author: Spenser Lee, Liberty Studio<br />
+    Originally posted on <a href="http://www.blueidea.com/bbs/" title="BlueIdea Forum">BlueIdea Forum</a>
+  </address>
+  <h2><a id="bullet-0">Table of centents:</a></h2>
+  <ol id="table-of-content">
+    <li><a href="#bullet-1" title="Single line countainer with/without a fixed height">Single line countainer with/without a fixed height</a></li>
+    <li><a href="#bullet-2" title="Align multi-line container which does not have a fixed height">Align multi-line container which does not have a fixed height</a></li>
+    <li><a href="#bullet-3" title="Simulating table layout in container with a fixed height">Simulating table layout in container with a fixed height</a></li>
+    <li><a href="#bullet-4" title="IE's solution">IE's solution</a></li>
+    <li><a href="#bullet-5" title="A perfect compounded sample">A perfect compounded sample</a></li>
+  </ol>
+  <h2><a id="bullet-1">Case One: Single line countainer with/without a fixed height</a></h2>
+  <p>If you only want to display a container which only holds a single line of text, you can set <span class="property">line-height</span> property to <span class="property">height</span> property, then set <span class="property">overflow</span> to hidden.</p>
+  <p><strong>Sample:</strong></p>
+  <p id="demo-1">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+  <p><strong>Core code:</strong></p>
+<pre><code>.middle-demo-1{
+  height: 4em;
+  line-height: 4em;
+  overflow: hidden;
+  }</code></pre>
+  <dl>
+    <dt>Notes:</dt>
+    <dd>
+      <ol>
+        <li>I strongly recommend you use relative size in <span class="property">height</span> and <span class="property">line-height</span> property. <em>Why?</em> You can simply set the font size larger if your browser support it. When it gets large enough, you will see the countainer is stretched and the <span class="property">height</span> is no longer equal to <span class="property">line-height</span> property, thus, the layout is messed up. Using relative size as <span class="property">em, ex</span> or <span class="property">%</span> will let your countainer stretch with the content.</li>
+        <li><span class="property">overflow: hidden</span> is a must. <em>Why?</em> Same as above. Just ensure <span class="property">height</span> and <span class="property">line-height</span> are always equal.</li>
+      </ol>
+    </dd>
+  </dl>
+  <dl>
+    <dt>Pros:</dt>
+    <dd>
+      <ol>
+        <li>Fits in both <span class="property">block</span> elements and <span class="property">inline</span> elements.</li>
+        <li>Capable of all 5th-gen browsers.</li>
+      </ol>
+    </dd>
+  </dl>
+  <dl>
+    <dt>Cons:</dt>
+    <dd>
+      <ol>
+        <li>Text length is limited. Max with only <em>one</em> line.</li>
+        <li>Does not work well on none text contents such as images and objects.</li>
+      </ol>
+    </dd>
+  </dl>
+  <p class="snap-back"><a href="#bullet-0" title="Back top table of centents">Back</a></p>
+  <h2><a id="bullet-2">Case Two: Align multi-line container which does not have a fixed height</a></h2>
+  <p>In this case, we should simply set a pair of fixed equivalences to padding-top and padding-bottom attribute. It works on both IE and non-IE browsers.</p>
+  <p><strong>Sample:</strong></p>
+  <div class="demo" id="demo-2">
+    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas dignissim diam eu sem. Proin nunc ante, accumsan sollicitudin, sodales at, semper sed, ipsum. Etiam orci. Vestibulum magna lectus, venenatis nec, tempus ac, dictum vel, lorem.</p>
+  </div>
+  <p><strong>Core code:</strong></p>
+<pre><code>.middle-demo-2{
+  padding-top: 24px;
+  padding-bottom: 24px;
+  }</code></pre>
+  <dl>
+    <dt>Pros:</dt>
+    <dd>
+      <ol>
+        <li>Fits in both <span class="property">block</span> elements and <span class="property">inline</span> elements.</li>
+        <li>Works on none text contents as fine as text contents.</li>
+        <li>Capable of all 5th-gen browsers. Might need a little tune-up for the box model bug of IE5 though.</li>
+      </ol>
+    </dd>
+  </dl>
+  <dl>
+    <dt>Cons:</dt>
+    <dd>
+      <ol>
+        <li>You can <em>not</em> assign height in this solution.</li>
+      </ol>
+    </dd>
+  </dl>
+  <p class="snap-back"><a href="#bullet-0" title="Back top table of centents">Back</a></p>
+  <h2><a id="bullet-3">Case Three: Simulating table layout in container with a fixed height</a></h2>
+  <p>CSS offers a set of very convenient display atrribute values called <span class="property">display: table</span>, <span class="property">display: table-row</span>, <span class="property">display: table-cell</span> and other display values begin with <span class="property">table-</span>. It offers a way to simulate table layout in all elements. As a result, any element with <span class="property">display: table-cell</span>, <span class="property">vertical-align: middle</span> and a fixed height will display exactly like a table cell.</p>
+  <p><strong>Sample:</strong> (You may not be able to view the effect on IE)</p>
+  <div class="demo" id="demo-3">
+    <div><div><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas dignissim diam eu sem. Proin nunc ante, accumsan sollicitudin, sodales at, semper sed, ipsum. Etiam orci. Vestibulum magna lectus, venenatis nec, tempus ac, dictum vel, lorem.</p></div></div>
+  </div>
+  <p><strong>Core code:</strong></p>
+<pre><code>.middle-demo-3{
+  display: table-cell;
+  height: 300px;
+  vertical-align: middle;
+  }</code></pre>
+  <dl>
+    <dt>Notes:</dt>
+    <dd>
+      <ol>
+        <li><span class="property">display: table-cell</span> must work with other elements with <span class="property">display: table</span> value sets in order to form a literal table. Or it might cause unexceptable bugs.</li>
+        <li>Sadly IE series (including the latest IE 7 beta) does not support any of <span class="property">display: table</span> values, so it won't work in IE.</li>
+      </ol>
+    </dd>
+  </dl>
+  <dl>
+    <dt>Pros:</dt>
+    <dd>
+      <ol>
+        <li>It has the most perfect render for <span class="property">vertical-align: middle</span> align.</li>
+      </ol>
+    </dd>
+  </dl>
+  <dl>
+    <dt>Cons:</dt>
+    <dd>
+      <ol>
+        <li>It only works in latest versions of non-IE browsers, such as Mozilla, Firefox, Netscape 8, Opera 8, and Safari.</li>
+      </ol>
+    </dd>
+  </dl>
+  <p class="snap-back"><a href="#bullet-0" title="Back top table of centents">Back</a></p>
+  <h2><a id="bullet-4">Case Four: IE's solution</a></h2>
+  <p>Since IE is a lame browser when it comes to ANYTHING, so you can't use the solution above simply because IE does not recognize it at all. However, <strong>there has been nothing yet you can not code with CSS if you have already coded it with table</strong>. It even offers you possibility to layout your page that tables can not do!</p>
+  <p>So what's the solution for IE? Like what we always do: Hit IE's back with the BUGS it offers!</p>
+  <p><strong>Sample:</strong> (You are able to view the correct result only on IE)</p>
+  <div class="demo" id="demo-4">
+    <div><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas dignissim diam eu sem. Proin nunc ante, accumsan sollicitudin, sodales at, semper sed, ipsum. Etiam orci. Vestibulum magna lectus, venenatis nec, tempus ac, dictum vel, lorem.</p></div>
+  </div>
+<pre><code>.middle-demo-4{
+  height: 300px;
+  position: relative;
+  }
+  .middle-demo-4 div{
+  position: absolute;
+  top: 50%;
+  left: 0;
+  }
+  .middle-demo-4 div div{
+  position: relative;
+  top: -50%;
+  left: 0;
+  }</code></pre>
+  <p>See? Don't ask me why it worked. This hack is based on years of study in IE's own stupid layout model and it works very well, even in IE5 given the box width hack. I won't tell you the theory behind all these. It's my top secret, with which I solved a lot of other cross browser layout problems, and I'm not going to share it with you. But you are free to use this IE hack It's kinda handful in most occassions.</p>
+  <dl>
+    <dt>Pros:</dt>
+    <dd>
+      <ol>
+        <li>The only perfect vertical align method in IE. It works even better then add automatic <span class="property">padding</span>s.</li>
+      </ol>
+    </dd>
+  </dl>
+  <dl>
+    <dt>Cons:</dt>
+    <dd>
+      <ol>
+        <li>After all it's a CSS hack. We can avoid it if not for IE.</li>
+      </ol>
+    </dd>
+  </dl>
+  <p class="snap-back"><a href="#bullet-0" title="Back top table of centents">Back</a></p>
+  <h2><a id="bullet-5">Case Five: A perfect compounded sample</a></h2>
+  <p>Here's the perfect compounded solution on vertical centering that works on almost all latest browsers.</p>
+  <p><strong>Sample:</strong> (This works on almost all browsers)</p>
+  <div class="demo" id="demo-5">
+    <div><p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas dignissim diam eu sem. Proin nunc ante, accumsan sollicitudin, sodales at, semper sed, ipsum. Etiam orci. Vestibulum magna lectus, venenatis nec, tempus ac, dictum vel, lorem.</p></div>
+  </div>
+  <p>I'm not going to give you the full code of this one. But it's not difficult to write it yourself, with the solution of case 3 and 4, and a little knowledge in IE/non-IE CSS hackers. And actually the hacking style is not limited, so I don't want to force you to use my hacking style neither. Stop being lazy, and write the code yourself!</p>
+  <dl>
+    <dt>Browser capability:</dt>
+    <dd>
+      <ol>
+        <li>Works on: IE6+, Mozilla 1.5+, Netscape Navigator 7+, Opera 7+, Firefox 1.0+ and Safari 1.0+</li>
+        <li>On IE5, you might need to apply the box model hacker to make the height correct.</li>
+        <li>Untested: WebOmini, Konqueror.</li>
+        <li>Fails on: Other browsers not reffered in the list above.</li>
+      </ol>
+    </dd>
+  </dl>
+  <p class="snap-back"><a href="#bullet-0" title="Back top table of centents">Back</a></p>
+  <p class="copyright">Copyright &copy; Spenser Lee, 2006 Liberty Studio</p>
+</div>
+</body>
+</html>

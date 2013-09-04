@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+<div>
+  <div>
+    <div>
+      <span id="child">
+        <span>dddd</span>
+      </span>
+    </div>
+  </div>
+</div>
+</body>
+<script type="text/javascript">
+  function getParents(baseId) {
+    var basenode = document.getElementById(baseId);
+    var parents = new Array();
+    var dirParent = basenode.parentNode;
+    while (dirParent != null) {
+      parents.push(dirParent);
+      dirParent = dirParent.parentNode;
+    }
+    return parents;
+  }
+  console.log(getParents("child"));
+
+</script>
+
+</html>

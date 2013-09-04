@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> 阻止JavaScript事件冒泡传递（cancelBubble 、stopPropagation）</title>
+  <meta name="keywords" content="JavaScript,事件冒泡,cancelBubble,stopPropagation" />
+  <script type="text/javascript">
+  function doSomething (obj,evt) {
+    alert(obj.id);
+    var e=(evt)?evt:window.event;
+    if (window.event) {
+      e.cancelBubble=true;
+      } else {
+      //e.preventDefault();
+      e.stopPropagation();
+      }
+    }
+  </script>
+  </head>
+<body>
+<div id="parent1" onclick="alert(this.id)" style="width:250px;background-color:yellow">
+  <p>This is parent1 div.</p>
+  <div id="child1" onclick="alert(this.id)" style="width:200px;background-color:orange">
+  <p>This is child1.</p>
+  </div>
+  <p>This is parent1 div.</p>
+  </div>
+<br />
+<div id="parent2" onclick="alert(this.id)" style="width:250px;background-color:cyan;">
+  <p>This is parent2 div.</p>
+  <div id="child2" onclick="doSomething(this,event);" style="width:200px;background-color:lightblue;">
+  <p>This is child2. Will bubble.</p>
+  </div>
+  <p>This is parent2 div.</p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style>
+    .left {
+      float: left;
+    }
+    .right {
+      float: right;
+    }
+  </style>
+  <script>
+    window.onload = function () {
+      document.getElementById("test").addEventListener("blur", blurHandler);
+      document.getElementById("test").addEventListener("focus", focusHandler);
+      function blurHandler () {
+        this.value = this.value == '' ? this.defaultValue : this.value;
+      }
+      function focusHandler () {
+        this.value = this.value == this.defaultValue ? '' : this.value;
+      }
+    };
+    alert(Function instanceof Object);
+    alert(Object instanceof Function);
+  </script>
+</head>
+<body>
+  <input id="test" value="Alipay WD Team">
+</body>
+</html>

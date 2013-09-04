@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style>
+    .textStroke h1{
+      color: white;
+      -webkit-text-stroke: 2px black;
+    }
+  </style>
+  <script>
+    var supports = (function() {
+      var div = document.createElement('div'),
+        vendors = 'Khtml Ms O Moz Webkit'.split(' '),
+        len = vendors.length;
+
+      return function(prop) {
+        if ( prop in div.style ) return true;
+
+        prop = prop.replace(/^[a-z]/, function(val) {
+          return val.toUpperCase();
+        });
+
+        while(len--) {
+          if ( vendors[len] + prop in div.style ) {
+            // browser supports box-shadow. Do what you need.
+            // Or use a bang (!) to test if the browser doesn't.
+            return true;
+          }
+        }
+        return false;
+      };
+    })();
+
+    if ( supports('textStroke') ) {
+      console.log("son of a bitch~~ it rocks..");
+      document.documentElement.className += ' textStroke';
+    }
+  </script>
+</head>
+<body>
+  <h1>come on, give me some!</h1>
+</body>
+</html>

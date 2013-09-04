@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script>
+    window.onload = function() {
+      document.getElementById("div2").addEventListener("click", function(){
+         alert("你点击了" + this.innerText + "盒子");
+         alert("你点击了" + this.parentNode.innerText + "盒子")
+      })
+      document.getElementById("div4").addEventListener("click", function(e){
+         alert("你点击了" + this.parentNode.innerText + "盒子");
+         alert("你点击了" + this.parentNode.innerText + "盒子")
+      })
+    }
+  </script>
+</head>
+<body>
+<div id="div1" style="border:1px solid #f00;height:200px;width:200px">
+  外面的
+  <div id="div2" style="border:1px solid #000;height:150px;width:150px">里面的</div>
+</div>
+
+<div id="div3" style="border:1px solid #f00;height:200px;width:200px">
+  外面的
+  <div id="div4" style="border:1px solid #000;height:150px;width:150px">里面的</div>
+</div>
+
+
+</body>
+</html>

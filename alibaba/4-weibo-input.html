@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script>
+    function countChar(textareaName, spanName) {
+      var max = 20;
+      var textarea = document.getElementById(textareaName);
+      var counter = document.getElementById(spanName);
+      console.log(textarea.value);
+      counter.innerHTML = max - textarea.value.length;
+      if (textarea.value.length > max) {
+        textarea.value = textarea.value.substring(0, max);
+        counter.innerHTML = 0;
+        alert("You can't enter any more!")
+      }
+    }
+  </script>
+</head>
+<body>
+  <div>
+    还可以输入<span id="counter">140</span>字<br>
+    <textarea id="status" onkeyup="countChar('status', 'counter');"></textarea>
+  </div>
+</body>
+</html>

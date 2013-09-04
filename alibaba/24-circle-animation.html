@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style type="text/css">
+    html,body{
+      height:100%;
+      width:100%
+    }
+    div{
+      width:10px;
+      height:10px;
+      background-color:black;
+      position:absolute;
+      display:inline-block
+    }
+  </style>
+</head>
+<body>
+<div id="content" style="height:100%;width:100%;background-color:#979797;overflow:hidden;position:relative">
+  <div id="circle"></div>
+</div>
+<script>
+  var circle = new Clock(200, 300, 100,"circle");
+  circle.draw();
+
+  function Clock(x, y, r, id) {
+    this.start = new Date();
+    this.r = r;
+    this.x = x;
+    this.y = y;
+    this.offsetX = r;
+    this.offsetY = 0;
+    this.id = id;
+    this.draw = function(){
+      //update data
+      var timespan = new Date() - this.start;
+      var offsetR = ((timespan % 36000) % 720) / 360 * Math.PI;
+      this.offsetX = this.r * Math.cos(offsetR);
+      this.offsetY = this.r * Math.sin(offsetR);
+      //draw
+      var dom = document.getElementById(this.id);
+      dom.style.left = this.x + this.offsetX + 'px';
+      dom.style.top = this.y + this.offsetY + 'px';
+
+      var that = this;                                  //test case 01
+      setTimeout(function(){that.draw()}, 40);          //test case 01 - 1
+    }
+  }
+
+</script>
+</body>
+</html>

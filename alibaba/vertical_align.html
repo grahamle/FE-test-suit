@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style>
+     body {
+       margin: 0;
+       background: #333;
+       height: 100%;
+     }
+     .wall {
+       width: 100%;
+       height: 100%;
+       background: aqua;
+       text-align: center;
+       font-size: 0;  /*font-size:0正如我上一篇文章所说的是为了消除代码换行所造成的空隙*/
+       /*如果没有这三行，height的100%是不能实现的，.wall <div>只是跟随img自适应扩展高度，
+       而不会填充整个页面*/
+       position: absolute;
+       left: 0;
+       top:0;
+     }
+     .img {
+       border: 0;
+       width: 300px;
+       vertical-align: middle;
+     }
+     .vAlign {
+       vertical-align: middle;  /*只应用于行内元素上，块级元素不适用*/
+       display: inline-block;  /*只有设置了这一行，才能对行内元素<span>进行height和width的设置*/
+       height: 100%;
+       width: 1px;
+       margin-left: -1px;
+     }
+  </style>
+</head>
+<body>
+  <div class="wall">
+    <span class="vAlign"></span>
+    <a href="index.html"><img class="img" src="1.jpg" alt="404页面" /></a>
+  </div>
+</body>
+</html>

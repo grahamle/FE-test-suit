@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+  <title>高度自适应的妙用</title>
+  <style type="text/css">
+    <!--
+    body {
+      margin:5px;
+      font-size: 9pt;
+    }
+    .box1 {
+      background-color: #33CCFF;
+      height: 500px;
+      width: 500px;
+      position: relative;
+    }
+    .box2 {
+      background-color: #CC99FF;
+      width: 100px;
+      position: absolute;
+      right:3px;
+      top:3px;
+      text-align: center;
+      line-height:15pt;
+    }
+    .box3 {
+      width: 390px;
+      height:500px;
+      position: absolute;
+      left:0px;
+      top:0px;
+      line-height:15pt;
+      border-right: thin dashed #999;
+    }
+    -->
+  </style>
+</head>
+
+<body>
+<div class="box1">
+  <div class="box3">右边的小盒子高度是没有设定的，它的高度是随着里面内容的增加而增高的，但我们又可以通过绝对定位把它始终定在父盒子的右上角。</div>
+  <div class="box2">
+    <p>蓝色理想<br />
+      经典论坛<br />
+      业界动态<br />
+      技术文档
+    </p>
+  </div>
+</div>
+</body>
+</html>

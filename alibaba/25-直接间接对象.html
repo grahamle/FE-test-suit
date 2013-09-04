@@ -1,0 +1,30 @@
+<html> 
+<head> 
+<title> </title> 
+</head> 
+<body>
+<script>
+  var o = {a:1,b:{c:{d:1}}};
+  var arr = new Array();
+  getProp(o);
+  var pr = new Object();
+  getProp(pr);
+
+  function getProp(obj){
+    for(var p in obj){
+      arr.push(p);
+      if(isObj(obj[p])){
+        getProp(obj[p]);
+      }
+    }
+  }
+  alert(arr);
+  alert(pr);
+  function isObj(obj){
+    if (obj !== null)
+    return obj instanceof Object;
+  }
+</script> 
+ 
+</body> 
+</html> 

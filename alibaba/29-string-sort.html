@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script type="text/javascript">
+    var arr = new Array();
+    arr.push("abd");
+    arr.push("cba");
+    arr.push("ba");
+    arr.sort(
+      function(a,b){
+        return a.substr(1)>b.substr(1);
+    });
+    alert(arr);
+
+//    function stringCmp(str1,str2){ //若应该排在后面则返回true
+//      if(str1.substr(1)>str2.substr(1))
+//        return true;
+//      return false;
+//    }
+//    function bubble_sort(array){
+//      for(var i=0;i<array.length;i++){
+//        for(var j=i;j<array.length;j++){
+//          if(stringCmp(array[i],array[j])){
+//            var temp = array[i];
+//            array[i] = array[j];
+//            array[j] = temp;
+//          }
+//        }
+//      }
+//    }
+//    bubble_sort(arr);
+//    console.log(arr);
+  </script>
+</head>
+<body>
+
+</body>
+</html>

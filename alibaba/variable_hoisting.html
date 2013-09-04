@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script type="text/javascript">
+
+    var a = 1;
+
+    function b() {
+      alert("step 1 a = " + a);
+      a = 10;   // step 2
+      alert("step 2 a = " + a);
+      function a() {} // step 1
+      alert(typeof(a));
+      return;
+    }
+
+    b();
+    alert(a);   // step 3
+
+
+  </script>
+</head>
+<body>
+
+</body>
+</html>

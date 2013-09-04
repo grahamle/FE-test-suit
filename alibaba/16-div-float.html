@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style>
+    @media screen and (min-width:600px)  {
+      * {
+        margin: 0;
+      }
+      .header {
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-top: 10px;
+      }
+      .sidebar, .content {
+        margin: 10px;
+      }
+      .header {
+        background: red;
+      }
+      .sidebar {
+        background: green;
+        float: left;
+        width: 200px;
+      }
+      .content {
+        background: blue;
+        overflow: auto;
+      }
+    }
+
+    @media screen and (max-width:600px) {
+      .header, .sidebar, .content {
+        width:auto;
+      }
+      .header {
+        background: red;
+      }
+      .sidebar {
+        background: green;
+      }
+      .content {
+        background: blue;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>header</h1>
+  </div>
+  <div class="sidebar">
+    <h1>sidebar</h1>
+  </div>
+  <div class="content">
+    <h1>content</h1>
+  </div>
+</body>
+</html>
