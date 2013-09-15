@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style>
+    .left {
+      float: left;
+    }
+    .right {
+      float: right;
+    }
+  </style>
+  <script>
+    window.onload = function () {
+      if (!isPlaceholder()) {
+
+        var inputbox = document.getElementById("username");
+        var placeholder = inputbox.getAttribute("placeholder");
+
+        if (!isIE()) {
+          inputbox.addEventListener("keyup", blurHandler);
+          inputbox.addEventListener("keydown", focusHandler);
+        } else {
+//          alert(inputbox.getAttributeNode("placeholder"));
+          placeholder = inputbox.getAttributeNode("placeholder").nodeValue;
+          alert(placeholder);
+//          inputbox.value = placeholder;
+          inputbox.attachEvent("onfocus", function(){
+            this.value = "";
+          });
+          inputbox.attachEvent("onblur", function(){
+            this.value = placeholder;
+          });
+        }
+
+        function blurHandler () {
+          if (this.value == '') {
+            this.value = placeholder;
+          }
+//          this.value = this.value == '' ? placeholder : this.value;
+        }
+        function focusHandler () {
+          if (this.value == placeholder) {
+            this.value = '';
+          }
+//          this.value = this.value == placeholder ? '' : this.value;
+        }
+      }
+    };
+
+    function isIE() {
+      return (document.all && window.ActiveXObject && !window.opera) ? true : false;
+    }
+
+    function isPlaceholder() {
+      var input = document.createElement("input");
+      return "placeholder" in input;
+    }
+  </script>
+</head>
+<body>
+  <label for="username">用户名</label>
+  <input id="username" value="" name="username" placeholder="请输入用户名">
+</body>
+</html>

@@ -1,0 +1,54 @@
+<html>
+<head>
+  <script type="text/javascript">
+    /*function tell(obj)
+    {
+      var x=document.getElementsByTagName("a");
+      for (i=0; i< x.length; i++) {
+        if (obj == x[i]) {
+          alert(i+1);
+        }
+      }
+    }*/
+ /* window.onload = init;
+  function f1(){
+    var a = 100;
+    f2(a);
+  }
+  function f2(x) {
+    return x;
+  }
+  alert(f1());
+  function init() {
+    var b = f1();
+    alert(b);
+  }*/
+//  必须要有window.onload
+  window.onload = init;
+  function init() {
+    var aa = document.getElementsByTagName("a");
+    for (i=0; i<aa.length; i++) {
+      aa[i].addEventListener("click", tell(i));
+    }
+
+    function tell(x) {
+      return function() {
+        alert(x+1);
+      }
+    }
+  }
+
+  </script>
+</head>
+<body>
+<a href="#">1</a>
+<p>come on, give me some positive...this shit</p>
+<p>djakljfdjsijfijsadjfdsafjd</p>
+<p>jdjfasdiofjiowjiewjjfiwejijfiwejdsfasd</p>
+<a href="#">2</a>
+<p>djiajifjiojweijfjwejfiw</p>
+<a href="#">3</a>
+<p>what the hell, this is the end</p>
+<a href="#">4</a>
+</body>
+</html>

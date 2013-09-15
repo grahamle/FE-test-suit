@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style>
+    .box {
+      background-color: green;
+      display: flex;
+      height: 200px;
+      width: 100%;
+    }
+    .item {
+      margin:10px;
+      background: #fff;
+    }
+    .item:first-child {
+      width: 200px;
+      background: #fff;
+      margin:10px;
+    }
+    .item:nth-child(2) {
+      flex: 1;
+    }
+    .item:nth-child(3) {
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <div class="item">column1</div>
+    <div class="item">column2</div>
+    <div class="item">column3</div>
+  </div>
+</body>
+</html>

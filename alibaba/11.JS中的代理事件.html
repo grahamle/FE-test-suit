@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style>
+    .a{color:#000;}
+    .b{color:#f00;}
+  </style>
+  <script>
+    //未使用事件委托
+    /*window.onload = function () {
+      var ul = document.getElementById("ulist");
+      if (ul.hasChildNodes()) {
+        var lis = ul.childNodes;
+      }
+      for (var i = 0; i < lis.length; i++) {
+        lis[i].addEventListener('click', function(){
+          alert(this.innerText);
+        });
+      }
+    }*/
+    window.onload = function() {
+      var ul = document.getElementById("ulist");
+      ul.addEventListener("click", function(e){
+        alert(e.target.innerText);
+      }, false);
+    }
+  </script>
+</head>
+<body>
+  <ul id="ulist">
+    <li>tab1</li>
+    <li>tab2</li>
+    <li>tab3</li>
+    <li>tab4</li>
+    <li>tab5</li>
+    <li>tab6</li>
+  </ul>
+  <div class="b a">这里的字体颜色是什么？为什么？</div>
+</body>
+</html>

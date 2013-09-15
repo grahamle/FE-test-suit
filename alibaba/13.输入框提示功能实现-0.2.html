@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script>
+    (function($){
+      $(document).ready(function() {
+        var input = $('#inputbox'),//要实现placeholder的input标签
+          defaultValue = input.attr('value'),
+          text = input.attr('placeholder'),
+          supportPlaceholder = 'placeholder' in document.createElement('input');
+        placeholder = function(input,text,defaultValue) {
+          if (defaultValue == '') {
+            input.attr('value',text);
+          }
+          input.focus(function(){
+            if(input.attr('value') === text){
+              $(this).attr('value','');
+            }
+          });
+          input.blur(function(){
+            if(input.attr('value') === ''){
+              $(this).attr('value',text);
+            }
+          });
+        };
+        if (!supportPlaceholder && input.attr('type') === 'text' && text) {
+          placeholder(input,text,defaultValue);
+        }
+      });
+    })(jQuery)
+  </script>
+</head>
+<body>
+<label id="textLable" class="lableC" for="inputbox">输入密码</label>
+<input id="inputbox" value="" name="textfield" placeholder="输入密码" type="text" />
+</body>
+</html>

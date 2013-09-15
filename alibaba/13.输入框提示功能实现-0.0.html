@@ -1,0 +1,44 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <style type="text/css">
+    .lableC{
+      visibility:visible;
+      color: #92a4bf;
+    }
+    .box{
+      border: 1px;
+      border-color:#fff;
+    }
+    .fieldC{
+      position: absolute;
+      width: 202px;
+      height: 25px;
+      top: 4px;
+      left: 0px;
+      background: transparent!important;
+    }
+  </style>
+  <script type="text/javascript">
+    function keyPresshandler(event){
+      document.getElementById("textLable").style.visibility="hidden";
+    }
+    function onBlurHandler(event){
+      document.getElementById("textLable").style.visibility="hidden";
+      if(document.getElementById("textfield").value==""){
+        document.getElementById("textLable").style.visibility="visible";
+      }
+    }
+  </script>
+</head>
+
+<body>
+
+<form id="form1" name="form1" method="post" action="">
+  <div class="box">
+    <label id="textLable" class="lableC" for="textfield">输入密码</label>
+    <input class="fieldC" name="textfield" onkeyup="onBlurHandler(event)" onkeydown="keyPresshandler(event)" type="text" id="textfield" />
+  </div>
+</form>
+</body>
+</html>

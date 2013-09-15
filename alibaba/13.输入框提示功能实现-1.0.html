@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style>
+    .lableC{
+      visibility:visible;
+      color: #92a4bf;
+    }
+    .box{
+      border: 1px;
+      border-color:#fff;
+    }
+    .fieldC{
+      position: absolute;
+      width: 202px;
+      height: 25px;
+      top: 4px;
+      left: 0px;
+      background: transparent;
+    }
+  </style>
+  <script>
+    window.onload = function () {
+      if (!isPlaceholder()) {
+        document.getElementById("textLable").style.visibility="hidden";
+        var inputbox = document.getElementById("inputbox");
+        if (!isIE()) {
+          inputbox.addEventListener("keyup", blurHandler);
+          inputbox.addEventListener("keydown", focusHandler);
+        } else {
+//
+          inputbox.attachEvent("onfocus", focusHandler);
+          inputbox.attachEvent("onblur", blurHandler);
+        }
+        function blurHandler () {
+          document.getElementById("textLable").style.visibility="hidden";
+          if(document.getElementById("textfield").value==""){
+            document.getElementById("textLable").style.visibility="visible";
+          }
+        }
+        function focusHandler () {
+          document.getElementById("textLable").style.visibility="hidden";
+        }
+      }
+    };
+    function isIE() {
+      return (document.all && window.ActiveXObject && !window.opera) ? true : false;
+    }
+    function isPlaceholder() {
+      var input = document.createElement("input");
+      return "placeholder" in input;
+    }
+  </script>
+</head>
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <div class="box">
+    <label id="textLable" class="lableC" for="inputbox">输入密码</label>
+    <input id="inputbox" class="fieldC" name="textfield" placeholder="输入密码" />
+  </div>
+</form>
+</body>
+</html>
