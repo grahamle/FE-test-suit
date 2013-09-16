@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!-- From force:front { } -->
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Filtered DOM Selector</title>
+    <style>
+        div { font-size: 24px; padding: 5px; border: 1px solid black; margin: 5px; }
+    </style>
+</head>
+<body>
+    <div id="id" style="width:600px">
+        <div class="a">
+            <a href="#a1">.a&gt;1</a>
+            <a href="#a2">.a&gt;2</a>
+            <a href="#a3">.a&gt;3</a>
+        </div>
+        <div class="b">
+            <a href="#b1">.b&gt;1</a>
+            <a href="#b2">.b&gt;2</a>
+            <div class="c">
+                <a href="#c1">.b&gt;.c&gt;1</a>
+                <a href="#c2">.b&gt;.c&gt;2</a>
+                <a href="#c3">.b&gt;.c&gt;3</a>
+            </div>
+            <div class="d">
+                <a href="#d1">.b&gt;.d&gt;1</a>
+                <a href="#d2">.b&gt;.d&gt;2</a>
+            </div>
+        </div>
+        <div class="c">
+            <a href="#c1">.c&gt;1</a>
+            <a href="#c2">.c&gt;2</a>
+            <a href="#c3">.c&gt;3</a>
+            <a href="#c4">.c&gt;4</a>
+            <div class="a">
+                <a href="#a1">.c&gt;.a&gt;1</a>
+                <a href="#a2">.c&gt;.a&gt;2</a>
+                <a href="#a3">.c&gt;.a&gt;3</a>
+            </div>
+        </div>
+        <div class="d">
+            <a href="#d1">.d&gt;1</a>
+            <a href="#d2">.d&gt;2</a>
+            <a href="#d3" class="c">.d&gt;3</a>
+        </div>
+        <div class="c">
+            <a href="#c1">.c&gt;1</a>
+            <a href="#c2">.c&gt;2</a>
+            <a href="#c3">.c&gt;3</a>
+            <a href="#c4">.c&gt;4</a>
+            <div class="a c">
+                <a href="#c1">.c&gt;.a.c&gt;1</a>
+                <a href="#c2">.c&gt;.a.c&gt;2</a>
+                <a href="#c3">.c&gt;.a.c&gt;3</a>
+                <a href="#c4">.c&gt;.a.c&gt;4</a>
+            </div>
+        </div>
+        <div class="c d">
+            <a href="#cd1">.c.d&gt;1</a>
+            <a href="#cd2">.c.d&gt;2</a>
+            <a href="#cd3">.c.d&gt;3</a>
+            <div class="a">
+                <a href="#a1">.c.d&gt;.a&gt;1</a>
+                <a href="#a2">.c.d&gt;.a&gt;2</a>
+                <a href="#a3">.c.d&gt;.a&gt;3</a>
+                <a href="#a4">.c.d&gt;.a&gt;4</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        function selector(rootId, filterClass, targetEle) {
+            var root = document.getElementById(rootId);
+            var nodes = document.getElementsByTagName(targetEle);
+            var result = [];
+            var i, j, node;
+
+            loop: for(i=0; i<nodes.length; i++) {
+                node = nodes[i].parentNode;
+                while(node != root) {
+                    if((' ' + node.className.toLowerCase() + ' ').indexOf(' ' + filterClass + ' ') == -1) {
+                        node = node.parentNode;
+                    } else {
+                        continue loop;
+                    }
+                }
+                result.push(nodes[i]);
+            }
+            return result;
+        }
+
+        /* Method2
+        function selector(rootId, filterClass, targetTag) {
+            var root = document.getElementById(rootId);
+            var nodes = root.getElementsByTagName(targetTag);
+            var result = [];
+            var i;
+            var l;
+         
+            var ascend = function(start, end, current) {
+                if(current == end) {
+                    result.push(start);
+                } else if((' ' + current.className.toLowerCase() + ' ').indexOf(' ' + filterClass + ' ') == -1) {
+                    ascend(start, end, current.parentNode);
+                }
+            };
+         
+            for(i = 0, l = nodes.length; i < l; i++) {
+                ascend(nodes[i], root, nodes[i].parentNode);
+            }
+         
+            return result;
+        }
+        */
+
+
+        var selected = selector('id', 'c', 'a');
+        for(var i = 0, l = selected.length; i < l; i++) {
+            selected[i].style.background = 'yellow';
+        }
+    </script>
+</body>
+</html>
