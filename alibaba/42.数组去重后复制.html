@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <script>
+    function dist(ar){
+      var m,n=[],o= {};
+      for (var i=0; (m= ar[i])!==undefined; i++)
+        if (!o[m]){
+          n.push(m);
+          o[m]=true;
+        }
+      return n.sort();
+    }
+    var a = ['d','a', 'b', 'c', 'b', 'd', 'c'];
+    var dist_arr = dist(a);
+    var clone = dist_arr.slice(0);
+    var res = dist_arr.concat(clone);
+    alert(res);
+  </script>
+</head>
+<body>
+
+</body>
+</html>

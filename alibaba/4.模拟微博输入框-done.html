@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style>
+    #tweet-box-container {
+      width: 520px;
+      border: solid 1px #dddddd;
+      padding: 5px 5px 40px 10px;
+    }
+    #tweet-box-header {
+      margin:10px;
+    }
+    .right, button {
+      float: right;
+    }
+    button {
+      margin-top: 5px;
+      margin-right: 20px;
+      width: 80px;
+      background-color:#eeeeee ;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+
+    }
+    .textbutton{
+      font: 18px bold;
+    }
+  </style>
+  <script>
+    window.onload = init;
+
+    function init() {
+      var textarea = document.getElementById("tweet-box");
+      var counter = document.getElementById("counter");
+      var button = document.getElementById("tweeting-button");
+      button.addEventListener('mousedown',clickHandler)
+      textarea.addEventListener('keyup', countChar);
+      textarea.addEventListener('keydown', countChar);
+
+      function clickHandler(){
+        button.disabled =true;
+        return true;
+      }
+      function countChar (){
+        var max = 150;
+        counter.innerHTML = textarea.value.length;
+        if ((max - textarea.value.length) < 10) {
+          counter.style.color = "red";
+        } else {
+          counter.style.color = "black";
+        }
+        if (textarea.value.length > max) {
+          textarea.value = textarea.value.substring(0, max);
+          counter.innerHTML = 150;
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+<div id="tweet-box-container">
+<form id="share">
+  <div id="tweet-box-header">
+    <span class="textbutton">分享</span>
+    <span class="textbutton">开会</span>
+    <span class="right">/150</span> <span id="counter" class="right">0</span>
+  </div>
+  <div id="editor">
+    <textarea id="tweet-box" name="tweet-box" placeholder="你在干什么？" style="resize: none; height: 55px; width: 505px;"></textarea>
+  </div>
+
+  <div>
+    <button id="tweeting-button" type="submit" >发布</button>
+  </div>
+</form>
+</div>
+</body>
+</html>

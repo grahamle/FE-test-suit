@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>占位符宽度比较</title>
+  <meta charset="utf-8" />
+  <script type="text/javascript">
+    window.onload = function() {
+      var check = document.getElementById('check');
+      var map = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+      var result = [];
+      var space_width = check.offsetWidth;
+      for (var i=0; i<map.length; i++) {
+        check.innerHTML = map[i];
+        if (check.offsetWidth == space_width) {
+        	result.push(map[i]);
+        }
+      }
+      alert(result);
+    }
+  </script>
+</head>
+<body>
+  <p><strong>题目：</strong>众所周知，字体设置为“宋体”的情况下，每个英文字符占位宽度是相同的。而在“Tahoma”字体下，每个英文字符的占位宽度不尽相同。问题：请编写程序找出“Tahoma”字体下，一个空格字符跟[a-z]中的哪些字符占位宽度一样？</p>
+  <p><strong>思路：</strong>来个 span ， inline元素开始没width嘛~把空格和字母一个个填进去比较宽度不就好了么…</p>
+  <span id="check" style="font-family: Tahoma;">&nbsp;</span>
+</body>
+</html>
