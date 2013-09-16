@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>字符串反向</title>
+  <meta charset="utf-8" />
+</head>
+<body>
+  <script type="text/javascript">
+    var str = "iwantthistobereversed";
+    /*r_str = str.split("").reverse().join("");
+    alert(r_str);*/
+
+    function reverseString(str) {
+      var r_str = "";
+      for (var i=str.length-1; i>=0; i--) {
+      	r_str += str.charAt(i);
+      }
+      return r_str;
+    }
+
+    alert(reverseString(str));
+  </script>
+</body>
+</html>

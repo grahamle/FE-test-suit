@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>判断出现最多的字符</title>
+  <meta charset="utf-8" />
+</head>
+<body>
+  <script type="text/javascript">
+    var str = "abcdefgaadwddsswwwwffffsafdawefwe";
+    var obj = {};
+    for (var i=0; i<str.length; i++) {
+    	var key = str[i];
+    	if(!obj[key]) {
+    		obj[key] = 1;
+    	} else {
+    		obj[key]++;
+    	}
+    }
+    var max = -1;
+    var max_key = "";
+    var key;
+    for (key in obj) {
+    	if (max < obj[key]) {
+    		max = obj[key];
+    		max_key = key;
+    	}
+    }
+    console.log("出现最多的是：" + max_key + "，总共" + max + "次");
+  </script>
+</body>
+</html>

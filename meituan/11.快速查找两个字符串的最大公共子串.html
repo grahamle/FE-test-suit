@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<body>
+  <script type="text/javascript">
+    function getMaxIntersec(stra, strb) {
+    	var aLen = stra.length;
+    	var bLen = strb.length;
+    	var index = 0;
+    	var beginIndex = 0;
+    	var endIndex = 0;
+    	for (index = 0; index < aLen; index++) {
+    		var i = 0;
+    		var begin = index; 
+    		var end = index;
+    		var aChar = stra.charAt(index);
+    		while (i<bLen && aChar != strb.charAt(i)) {
+    			i++;
+    		}
+    		if (i == bLen) continue;
+    		while (end < aLen && i < bLen && stra.charAt(end) == strb.charAt(i)) {
+    			end++;
+    			i++
+    		}
+    		if ((end - begin) > (endIndex - beginIndex)) {
+    			beginIndex = begin;
+    			endIndex = end;
+    		}
+    	}
+    	return stra.substring(beginIndex, endIndex);
+    }
+    alert(getMaxIntersec("abcecade", "dgecadde"));
+  </script>
+</body>
+</html>
