@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <script type="text/javascript">
+    function getBytes(str) {
+    	var len = str.length;
+    	var bytes = len;
+    	for (var i=0; i<len; i++) {
+    		if (str.charCodeAt(i) > 255)  //对于中文字符，在原先总bytes的基础上加 1
+    			bytes++;
+    	}
+    	return bytes;
+    }
+    alert(getBytes("你好，Britain"));
+  </script>
+</body>
+</html>
