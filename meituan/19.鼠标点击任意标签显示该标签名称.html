@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>鼠标点击任意标签显示名称</title>
+  <meta charset="utf-8" />
+  <style>
+    div { 
+      background:#0000FF;
+      width:100px;
+      height:100px;
+    }
+    span { 
+      background:#00FF00;
+      width:100px;
+      height:100px;
+    }
+    p { 
+      background:#FF0000;
+      width:100px;
+      height:100px;
+    }
+</style>
+</head>
+<body>
+  <div id="div"><span>a embedded span</span>DIV</div>
+  <span>an isolated span</span>
+  <p>this is a para</p>
+  <script type="text/javascript">
+    document.onclick = function(evt) {
+      var e = window.event || evt;
+      var tag = e["target"] || e["srcElement"];
+      alert(tag.tagName);
+    }
+  </script>
+</body>
+</html>
