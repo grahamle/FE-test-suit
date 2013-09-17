@@ -17,7 +17,7 @@
     		if (obj.hasOwnProperty(p)) {
     			v = obj[p];
     			if (v && 'object' === typeof v) {
-    				copy[p] = Ext.ux.clone(v);
+    				copy[p] = deepClone(v);
     			} else {
     				copy[p] = v;
     			}
