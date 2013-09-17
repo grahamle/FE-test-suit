@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>countdown</title>
+  <meta charset="utf-8" />
+</head>
+<body>
+  <div id="countdown"></div>
+  <script type="text/javascript">
+    function countDown() {
+    	var date = new Date();
+    	var year = date.getFullYear();
+    	var endDate = new Date(year, 12, 31, 23, 59, 59);
+    	var duration = (endDate - date)/1000;
+    	var day = Math.floor(duration/(24*60*60));
+    	var hour = Math.floor(duration%(24*60*60)/(60*60));
+    	var minute = Math.floor(duration%(24*60*60)%(60*60)/60);
+    	var second = Math.floor(duration%(24*60*60)%(60*60)%60);
+    	var str = year+"年还剩"+day+"天"+hour+"时"+minute+"分"+second+"秒";
+    	document.getElementById("countdown").innerHTML = str;
+    }
+    window.setInterval("countDown()", 1000);
+  </script>
+</body>
+</html>
