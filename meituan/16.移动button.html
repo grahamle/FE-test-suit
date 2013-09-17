@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>movebutton</title>
+  <meta charset="utf-8" />
+</head>
+<body>
+  <div>
+    <input type="button" id="button1" value="button1" />
+    <input type="button" id="button2" value="button2" />
+  </div>
+  <script type="text/javascript">
+    document.getElementById("button1").addEventListener("click", moveBtn);
+    function moveBtn() {
+    	var clone = this.cloneNode(true);
+    	var parent = this.parentNode;
+    	parent.appendChild(clone);
+    	parent.removeChild(this);
+    }
+  </script>
+</body>
+</html>
