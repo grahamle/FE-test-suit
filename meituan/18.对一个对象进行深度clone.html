@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>对一个对象进行深度clone</title>
+  <meta charset="utf-8" />
 </head>
 <body>
   
@@ -10,8 +11,29 @@
     	if(!obj || 'object' !== typeof obj) {
     		return obj;
     	}
-    	var c = 'function' === typeof obj.pop ? [] : {} ;
+    	var copy = 'function' === typeof obj.pop ? [] : {} ;
+    	var p, v; //p for property, v for value.表示键值对
+    	for (p in obj) {
+    		if (obj.hasOwnProperty(p)) {
+    			v = obj[p];
+    			if (v && 'object' === typeof v) {
+    				copy[p] = Ext.ux.clone(v);
+    			} else {
+    				copy[p] = v;
+    			}
+    		}
+    	}
+    	return copy;
     }
+    var sampleObj = {
+    	fields: ['name', 'age'],
+    	data:[
+          {name: 'foo', age: 20},
+          {name: 'boo', age: 30},
+          {name: 'yoo', age: 40}
+    	]
+    }
+    console.log(deepClone(sampleObj));
   </script>
 </body>
 </html>
