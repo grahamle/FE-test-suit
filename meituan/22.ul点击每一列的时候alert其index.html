@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ul点击每一列的时候alert其index</title>
+  <style type="text/css">
+    #ulist li {
+      margin: 30px;
+    }
+  </style>
+  <script>
+    //未使用事件委托
+    /*window.onload = function () {
+      var ul = document.getElementById("ulist");
+      if (ul.hasChildNodes()) {
+        var lis = ul.childNodes;
+      }
+      for (var i = 0; i < lis.length; i++) {
+        lis[i].addEventListener('click', function(){
+          alert(this.innerText);
+        });
+      }
+    }*/
+
+    /*
+    采用了事件委托之后
+    window.onload = function() {
+      var ul = document.getElementById("ulist");
+      ul.addEventListener("click", function(e){
+        alert(e.target.innerText);
+      }, false);
+    }
+    */
+    // 需求：ul点击每一列的时候alert其index
+    window.onload = init;
+    function init() {
+      var index = 0;
+      var ul = document.getElementById("ulist");
+      
+      // 一下for循环中index的自加1太坑爹了，遍历一遍之后，index到7，8，还在增，显然不对
+      for (var i=0, l=ul.childNodes.length; i<l; i++) {
+        if (ul.childNodes[i].nodeName.toLowerCase() == "li") {
+          var li = ul.childNodes[i];
+          li.onclick = function() {
+            index++;
+            alert(index);
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+  <ul id="ulist">
+    <li>tab1</li>
+    <li>tab2</li>
+    <li>tab3</li>
+    <li>tab4</li>
+    <li>tab5</li>
+    <li>tab6</li>
+  </ul>
+
+</body>
+</html>
