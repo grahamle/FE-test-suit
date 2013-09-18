@@ -31,7 +31,7 @@
     }
     */
     // 需求：ul点击每一列的时候alert其index
-    window.onload = init;
+    /*window.onload = init;
     function init() {
       var index = 0;
       var ul = document.getElementById("ulist");
@@ -46,7 +46,19 @@
           }
         }
       }
+    }*/
+    var init = function () {
+      var ul = document.getElementById("ulist");
+      var lis = ul.getElementsByTagName("li");
+      for (var i=0, l=lis.length; i<l; i++) {
+        lis[i].onclick = function(idx) {
+          return function() {
+            alert(idx);
+          }
+        }(i);
+      }
     }
+    window.onload = init;
   </script>
 </head>
 <body>
