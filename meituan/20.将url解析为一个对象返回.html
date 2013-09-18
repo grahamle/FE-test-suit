@@ -16,14 +16,14 @@
       arr = arr[1].split("&");
       for (var i=0, l=arr.length; i<l; i++) {
         var a = arr[i].split("=");
-        params[a[0]] = a[1]
+        params[a[0]] = a[1];
       }
       return params;
     }
 
-    var testUrl = "https://www.google.com.hk/search?q=Javascript%E9%97%AD%E5%8C%85%E7%9C%9F%E7%BB%8F&oq=Javascript%E9%97%AD%E5%8C%85%E7%9C%9F%E7%BB%8F&aqs=chrome..69i57j69i61l2.1148j0&sourceid=chrome&ie=UTF-8";
+    var testUrl = "http://www.narutom.com/comic/21997.html?p=10";
     var ps = parseUrlToObj(testUrl);
-    alert(ps);
+    console.log(ps);
   </script>
 </body>
 </html>

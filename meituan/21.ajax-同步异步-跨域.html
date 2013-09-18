@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+    body{
+      color:#444;
+      font-family:Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman',
+              "Hiragino Sans GB", "STXihei", "微软雅黑", serif;
+      font-size:12px;
+      line-height:1.5em;
+      background:#fefefe;
+      width: 45em;
+      margin: 10px auto;
+      padding: 1em;
+      outline: 1300px solid #FAFAFA;
+    }
+
+    a{ color: #0645ad; text-decoration:none;}
+    a:visited{ color: #0b0080; }
+    a:hover{ color: #06e; }
+    a:active{ color:#faa700; }
+    a:focus{ outline: thin dotted; }
+    a:hover, a:active{ outline: 0; }
+
+    span.backtick {
+      border:1px solid #EAEAEA;
+      border-radius:3px;
+      background:#F8F8F8;
+      padding:0 3px 0 3px;
+    }
+
+    ::-moz-selection{background:rgba(255,255,0,0.3);color:#000}
+    ::selection{background:rgba(255,255,0,0.3);color:#000}
+    
+    a::-moz-selection{background:rgba(255,255,0,0.3);color:#0645ad}
+    a::selection{background:rgba(255,255,0,0.3);color:#0645ad}
+    
+    p {
+      margin:1em 0;
+    }
+    
+    img{
+      max-width:100%;
+    }
+    
+    h1,h2,h3,h4,h5,h6{
+      font-weight:normal;
+      color:#111;
+      line-height:1em;
+    }
+    h4,h5,h6{ font-weight: bold; }
+    h1{ font-size:2.5em; }
+    h2{ font-size:2em; border-bottom:1px solid silver; padding-bottom: 5px; }
+    h3{ font-size:1.5em; }
+    h4{ font-size:1.2em; }
+    h5{ font-size:1em; }
+    h6{ font-size:0.9em; }
+
+    blockquote{
+      color:#666666;
+      margin:0;
+      padding-left: 3em;
+      border-left: 0.5em #EEE solid;
+    }
+    hr { display: block; height: 2px; border: 0; border-top: 1px solid #aaa;border-bottom: 1px solid #eee; margin: 1em 0; padding: 0; }
+
+
+    pre , code, kbd, samp { 
+      color: #000; 
+      font-family: monospace; 
+      font-size: 0.88em; 
+      border-radius:3px;
+      background-color: #F8F8F8;
+      border: 1px solid #CCC; 
+    }
+    pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; padding: 5px 12px;}
+    pre code { border: 0px !important; padding: 0;}
+    code { padding: 0 3px 0 3px; }
+
+    b, strong { font-weight: bold; }
+    
+    dfn { font-style: italic; }
+    
+    ins { background: #ff9; color: #000; text-decoration: none; }
+    
+    mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
+    
+    sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+    sup { top: -0.5em; }
+    sub { bottom: -0.25em; }
+    
+    ul, ol { margin: 1em 0; padding: 0 0 0 2em; }
+    li p:last-child { margin:0 }
+    dd { margin: 0 0 0 2em; }
+    
+    img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
+    
+    table { border-collapse: collapse; border-spacing: 0; }
+    td { vertical-align: top; }
+
+    @media only screen and (min-width: 480px) {
+    body{font-size:14px;}
+    }
+    
+    @media only screen and (min-width: 768px) {
+    body{font-size:16px;}
+    }
+
+    @media print {
+      * { background: transparent !important; color: black !important; filter:none !important; -ms-filter: none !important; }
+      body{font-size:12pt; max-width:100%; outline:none;}
+      a, a:visited { text-decoration: underline; }
+      hr { height: 1px; border:0; border-bottom:1px solid black; }
+      a[href]:after { content: " (" attr(href) ")"; }
+      abbr[title]:after { content: " (" attr(title) ")"; }
+      .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
+      pre, blockquote { border: 1px solid #999; padding-right: 1em; page-break-inside: avoid; }
+      tr, img { page-break-inside: avoid; }
+      img { max-width: 100% !important; }
+      @page :left { margin: 15mm 20mm 15mm 10mm; }
+      @page :right { margin: 15mm 10mm 15mm 20mm; }
+      p, h2, h3 { orphans: 3; widows: 3; }
+      h2, h3 { page-break-after: avoid; }
+    }
+  </style>
+  <title>21.ajax-同步异步-跨域</title>
+</head>
+<body>
+  <h2 id="ajax">Ajax概述</h2>
+  <h3 id="ajax_1">ajax是什么</h3>
+  <p>首先回答第一个问题，ajax是什么，它不是一种新的编程语言，而是一种基于已有的web技术而构建的技术，主要用于创建更好更快以及交互性更强的Web应用程序。它是Asynchronous JavaScript + XML的缩写，是一种让浏览器与服务器<strong>偷偷</strong>交互的技术。</p>
+  <p><em>基本思想：</em> 允许一个互联网浏览器向一个远程页面/服务做异步的http调用，并且用收到的数据来更新一个当前web页面而不必刷新整个站点，或是更新当前页面的局部而不刷新整个页面。该技术能够改进客户端（尤其指浏览器端）的用户体验。</p>
+  <p><em>过程一瞥：</em> 通过 AJAX，您的 JavaScript 可使用 JavaScript的 XMLHttpRequest对象来直接与服务器进行通信。通过这个对象，您的 JavaScript 可在不重载页面的情况与Web服务器交换数据。AJAX 在浏览器与 Web 服务器之间使用异步数据传输（HTTP请求），这样就可使网页从服务器请求少量的信息，而不是整个页面。 </p>
+  <h3 id="ajax_2">ajax的交互模型</h3>
+  <p><em>包含技术：</em> <a href="http://caanel.blog.163.com/blog/static/18246842720137495650567/">Ajax交换模型</a></p>
+  <ul>
+  <li>基于 XHTML/CSS 标准的展现</li>
+  <li>使用 DOM 的动态显示和交互</li>
+  <li>使用 XML 和 XSLT 的数据交换和处理</li>
+  <li>使用 XMLHttpRequest 的异步数据获取</li>
+  </ul>
+  <p><em>交互模型：</em> Ajax在Browser端引入一个执行引擎，它一边应付user的请求，一边把某些必须交给服务器处理的东西背地里传送给服务器，同时背地里把结果准备好（接受服务器端的数据），展现给客户的技术模式。</p>
+  <h3 id="_1">同步和异步的区别</h3>
+  <p>Ajax是异步操作，在请求刷新局部页面的同时并不阻滞用户对页面其他地方的操作，从而增强了用户的操作性。而同步就是整个页面都刷新，异步就是只刷新用了Ajax技术的部分。</p>
+  <p><em>区别：</em></p>
+  <ul>
+  <li>同步：脚本会停留并等待服务器发送回复然后再继续</li>
+  <li>异步：脚本允许页面继续其进程并处理可能的回复</li>
+  </ul>
+  <h3 id="_2">如何解决跨域问题</h3>
+  <p>跨域问题简单的理解就是因为JS同源策略的限制，a.com域名下的JS无法操作b.com或c.a.com下的对象。</p>
+  <p><em>备注：</em></p>
+  <ol>
+  <li>如果是端口或者协议造成的跨域问题前端是无能为力的</li>
+  <li>在跨域问题上，域仅仅通过URL的首部来识别而不会尝试判断相同的IP地址对应的域或者两个域是否对应一个IP</li>
+  </ol>
+  <p><em>解决：</em></p>
+  <ol>
+  <li>document.domain+iframe</li>
+  <li>动态创建script标签</li>
+  </ol>
+  <h3 id="ajax_3">Ajax进阶</h3>
+  <p><a href="http://blog.csdn.net/shizhiyingnj/article/details/1458527">Ajax原理详细剖析</a></p>
+  <hr />
+  <p>Ajax后续</p>
+</body>
+</html>
