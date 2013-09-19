@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>用闭包创建一个带get/set方法的计数器</title>
+  <meta charset="utf-8" />
+</head>
+<body>
+  <script>
+    function counter(n) {
+	  return {
+		  get count() { return n++; },
+		  set count(m) {
+			if (m >= n) n = m;
+			else throw Error("can only be set up to a larger num');
+		  }
+	  }
+  }
+  var c = counter(1000);
+  console.log(c.count);
+  console.log(c.count);
+  c.count = 2000;
+  console.log(c.count);
+  console.log(c.count);
+  c.count = 2000;
+
+  </script>
+</body>
+</html>
