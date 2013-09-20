@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<script>
+	  var o = {x:1, y:2, z:3};
+	  var a = [];
+	  var i = 0;
+	  for (a[i++] in o);
+	  
+	  for (i in a) {
+	    console.log(i);
+		console.log(a[i]);
+      }
+	</script>
+</body>
+</html>
