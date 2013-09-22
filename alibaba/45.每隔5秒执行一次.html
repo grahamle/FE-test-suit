@@ -10,16 +10,16 @@
     	this.name = "taobao";
     	that = this;
     	var waitMes = function() {
-			alert(that.name);
-			setTimeout(waitMes, 5000);
+			  alert(that.name);
+			  setTimeout(waitMes, 5000);
     	};
     	/*
     	 * setTimeout本身就是只执行一次，可以用递归或setInterval
-		var waitMes = function() {
-			setInterval(function() {
-				alert(that.name)
-			}, 5000);
-		}
+		  var waitMes = function() {
+			  setInterval(function() {
+				  alert(that.name)
+			  }, 5000);
+		  }
     	 */
     	
     	return waitMes;
