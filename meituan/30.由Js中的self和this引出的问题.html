@@ -1,0 +1,193 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+
+body{
+  color:#444;
+  font-family:Georgia, Palatino, 'Palatino Linotype', Times, 'Times New Roman',
+              "Hiragino Sans GB", "STXihei", "微软雅黑", serif;
+  font-size:12px;
+  line-height:1.5em;
+  background:#fefefe;
+  width: 45em;
+  margin: 10px auto;
+  padding: 1em;
+  outline: 1300px solid #FAFAFA;
+}
+
+a{ color: #0645ad; text-decoration:none;}
+a:visited{ color: #0b0080; }
+a:hover{ color: #06e; }
+a:active{ color:#faa700; }
+a:focus{ outline: thin dotted; }
+a:hover, a:active{ outline: 0; }
+
+span.backtick {
+  border:1px solid #EAEAEA;
+  border-radius:3px;
+  background:#F8F8F8;
+  padding:0 3px 0 3px;
+}
+
+::-moz-selection{background:rgba(255,255,0,0.3);color:#000}
+::selection{background:rgba(255,255,0,0.3);color:#000}
+
+a::-moz-selection{background:rgba(255,255,0,0.3);color:#0645ad}
+a::selection{background:rgba(255,255,0,0.3);color:#0645ad}
+
+p{
+margin:1em 0;
+}
+
+img{
+max-width:100%;
+}
+
+h1,h2,h3,h4,h5,h6{
+font-weight:normal;
+color:#111;
+line-height:1em;
+}
+h4,h5,h6{ font-weight: bold; }
+h1{ font-size:2.5em; }
+h2{ font-size:2em; border-bottom:1px solid silver; padding-bottom: 5px; }
+h3{ font-size:1.5em; }
+h4{ font-size:1.2em; }
+h5{ font-size:1em; }
+h6{ font-size:0.9em; }
+
+blockquote{
+color:#666666;
+margin:0;
+padding-left: 3em;
+border-left: 0.5em #EEE solid;
+}
+hr { display: block; height: 2px; border: 0; border-top: 1px solid #aaa;border-bottom: 1px solid #eee; margin: 1em 0; padding: 0; }
+
+
+pre , code, kbd, samp { 
+  color: #000; 
+  font-family: monospace; 
+  font-size: 0.88em; 
+  border-radius:3px;
+  background-color: #F8F8F8;
+  border: 1px solid #CCC; 
+}
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; padding: 5px 12px;}
+pre code { border: 0px !important; padding: 0;}
+code { padding: 0 3px 0 3px; }
+
+b, strong { font-weight: bold; }
+
+dfn { font-style: italic; }
+
+ins { background: #ff9; color: #000; text-decoration: none; }
+
+mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
+
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+ul, ol { margin: 1em 0; padding: 0 0 0 2em; }
+li p:last-child { margin:0 }
+dd { margin: 0 0 0 2em; }
+
+img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+td { vertical-align: top; }
+
+@media only screen and (min-width: 480px) {
+body{font-size:14px;}
+}
+
+@media only screen and (min-width: 768px) {
+body{font-size:16px;}
+}
+
+@media print {
+  * { background: transparent !important; color: black !important; filter:none !important; -ms-filter: none !important; }
+  body{font-size:12pt; max-width:100%; outline:none;}
+  a, a:visited { text-decoration: underline; }
+  hr { height: 1px; border:0; border-bottom:1px solid black; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }
+  pre, blockquote { border: 1px solid #999; padding-right: 1em; page-break-inside: avoid; }
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page :left { margin: 15mm 20mm 15mm 10mm; }
+  @page :right { margin: 15mm 10mm 15mm 20mm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+}
+</style><title>30.由Js中的self和this引出的问题</title></head><body><h2 id="js">Js的面向对象</h2>
+<h3 id="_1">起因</h3>
+<p>其实就是因为Js的基础太薄弱了，看了N遍的原型还有Js对象的问题，还是没有搞懂，终于翻到这篇博文了，<a href="http://www.cnblogs.com/fullhouse/archive/2012/03/20/2407647.html">Js中的self和this小结</a></p>
+<p>直接上段代码：</p>
+<pre><code>var Class = {
+    create: function() {
+        return function() {
+            this.initialize.apply(this, arguments);
+        }
+    }
+}
+</code></pre>
+<p>Class类的使用如下：</p>
+<pre><code>var A = Class.create();
+A.prototype = {
+    initialize.function(v) {
+        this.value = v;
+    }
+    showValue: function() {
+        alert(this.value);
+    }
+}
+
+var a = new A('hello-world');
+a.showValue(); //结果弹出对话框显示"hello-world"
+</code></pre>
+<p>对于上面的代码，这就有了疑问：</p>
+<ul>
+<li>initialize是什么东西呀？</li>
+<li>apply方法是干啥子的么？</li>
+<li>arguments变量又是搞墨子的么？</li>
+<li>为什么new A之后会立即执行initialize方法？</li>
+</ul>
+<h3 id="js_1">寻找答案 - Js的面向对象</h3>
+<h4 id="initialize">initialize</h4>
+<p>只不过是个变量，代表一个方法，用途是类的构造函数。</p>
+<p>其具体功能靠js的面向对象支持，那么js的面向对象是什么样子的那？和java 的有什么相同与不同？</p>
+<p>看代码永远是最直观的：</p>
+<pre><code>var ClassName = function(v) {
+    this.value = v;
+    this.getValue = function() {
+        return this.value;
+    }
+    this.setValue = function() {
+        this.value = v;
+    }
+}
+</code></pre>
+<p>那么<strong>Js中的函数和类到底有什么不同</strong>呢？</p>
+<p>其实是<strong>一样的</strong>，是的，我被震惊了，但它们确实一样~~</p>
+<p>拿上面代码来讲，有两种情况：</p>
+<ul>
+<li>
+<p>ClassName就是一个函数，出现在new之后就作为一个<strong>构造函数</strong>来<code>构造对象</code>。如：</p>
+<p>var obj1 = new ClassName("a"); // 得到一个对象</p>
+</li>
+</ul>
+<p>其中obj1就是执行ClassName构造函数后得到的对象，而在ClassName函数中的this指的就是new之后构造出来的对象，所以objectName1会后一个属性和两个方法。可以通过这样来调用他们：</p>
+<pre><code>obj1.setValue(''hello''); 
+alert(obj1.getValue());//对话框hello 
+alert(obj1.value) ;//对话框hello
+</code></pre>
+<ul>
+<li>
+<p>如果直接调用，如：</p>
+<p>var obj2 = ClassName("b"); //同样得到一个对象</p>
+</li>
+</ul>
+<p>但是，这里的obj2，显然是<strong>函数ClassName()执行后的返回值</strong>，这里ClassName只作为了一个普通的函数（虽然首字母大写了）。但是在之前写的ClassName中并没有返回值，所以obj2会是undifinded的。那么"b"赋给谁了呢？在这并没有产生一个对象，而只是单纯的执行这个方法，所以这个"b"赋值给了调用这个方法的对象window，证据如下，在上面obj2的基础上：</p>
+<pre><code>alert(window.value); //得到对话框，显示"b"
+</code></pre></body></html>
