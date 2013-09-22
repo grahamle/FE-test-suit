@@ -1,0 +1,37 @@
+<html>
+<head>
+  <title>99乘法表</title>
+  <meta charset="utf-8" />
+  <script type="text/javascript">
+  	// 由于document.write()是写到文档流里，所以所有步骤按部就班就可以。
+  	/* 以下方法将会打印一个方形的99乘法表
+    document.write("<table>");
+  	for (var i=1; i<=9; i++) {
+  		document.write("<tr>");
+  		for (var j=1; j<=9; j++) {
+  			document.write("<td>");
+  			document.write(i + "*" + j + "=" + i*j);
+  			document.write("</td>");
+  		}
+  		document.write("</tr>");
+  	}
+  	document.write("</table>");*/
+    
+    // 以下方法打印传统的99乘法表，矩形的一半
+    var i,j;
+    for(i=1;i<10;i++) {
+      for(j=1;j<=i;j++) {  //关键是要j<=i就可以了，而不是<10   
+        document.write(j);    
+        document.write('*');   
+        document.write(i);    
+        document.write('=');    
+        document.write(i*j);    
+        document.write('&nbsp;');    
+      }    
+      document.write('<br/>');    
+    }
+  </script>
+</head>
+<body>
+</body>
+</html> 
