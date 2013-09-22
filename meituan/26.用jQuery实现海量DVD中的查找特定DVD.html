@@ -59,7 +59,16 @@
     var filterCount = 0;
 
     $(function() {
+      $('#addFilterButton').click(function() {
+      	var filterItem = $('<div>').addClass('filterItem').appendTo('#filterPane').data('suffix', '.'+(filterCount++));
+      	$('div.template.filterChooser').children().clone().appendTo(filterItem).trigger('adjustName');
+      });
 
+      $('.filterItem [name]').live('adjustName', function() {
+      	var suffix = $(this).closest('.filterItem').data('suffix');
+      	if(/(\w)+\.(\d)+$/.test($(this).attr('name'))) return;
+      	$(this).attr('name', $(this).attr('name')+suffix);
+      })；
     });
   </script>
 </head>
