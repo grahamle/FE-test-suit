@@ -1,0 +1,86 @@
+body {
+  font-family: 'Verdana',sans-serif;
+  font-size: 10pt;
+  background: url('../images/backg.png') repeat;
+  color: white;
+}
+
+#banner {
+  margin-left: 32px;
+}
+
+#pageContent {
+  width: 720px;
+  margin: 0 0 0 32px;
+  border: 8px ridge #362c24;
+  background-color: #46403c;
+  padding: 16px;
+}
+
+#pageContent h1 {
+  margin: 0 0 18px 0;
+  padding: 0;
+  color: #eda633;
+}
+
+#productDetailPane {
+  font-size: 0.9em;
+  margin-top: 20px;
+}
+
+#productDetailPane>div {
+  margin-bottom: 6px;
+}
+
+#productDetailPane label {
+  float: left;
+  font-weight: bold;
+  width: 9em;
+  text-align: right;
+  color: #ffdeae;
+  margin-right: 8px;
+}
+
+#bootChooserControl {
+  width: 188px;
+}
+
+#colorChooserControl {
+  width: 138px;
+}
+
+#sizeChooserControl {
+  width: 122px;
+}
+
+select+label {
+  margin-left: 18px;
+}
+
+abbr.termified {
+  text-decoration: underline;
+  color: aqua;
+  cursor: pointer;
+}
+
+div.termifier {
+  background-color: cornsilk;
+  width: 256px;
+  color: brown;
+  padding: 8px;
+  font-size: 0.8em;
+}
+
+div.termifier.fancy {
+  background: url('images/termifier.bubble.png') no-repeat transparent;
+  width: 256px;
+  height: 104px;
+}
+
+div.termifier.fancy div {
+  height: 86px;
+  width: 208px;
+  overflow: auto;
+  color: black;
+  margin-left: 24px;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>The Boot Closet &mdash; Phase 1</title>
+    <link rel="stylesheet" type="text/css" href="/styles/core.css">
+    <link rel="stylesheet" type="text/css" href="/styles/bootcloset.css">
+    <link rel="icon" type="image/gif" href="images/favicon.gif">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.0.min.js"></script>
+    <script type="text/javascript" src="/scripts/jqia2.support.js"></script>
+    <script type="text/javascript">
+      $(function() {
+
+        $('#bootChooserControl')
+          .load('/actions/fetchBootStyleOptions.php');
+
+        /*$('#bootChooserControl').change(function(event){
+          console.log($(event.target).val());
+          $('#productDetailPane').load(
+            '/actions/fetchProductDetails.php',
+            {style: $(event.target).val()},
+            function() { $('[value=""]',event.target).remove(); }
+          );
+
+        });*/
+
+        $.get(
+            '/actions/fetchProductDetails.php',
+            {style: $(event.target).val()},
+            function(response) {
+              $('#productDetailPane').html(response);
+              $('[value=""]',event.target).remove();
+            }
+          );
+      });
+    </script>
+  </head>
+
+  <body>
+
+    <div id="banner">
+      <img src="images/banner.boot.closet.png" alt="The Boot Closet"/>
+    </div>
+
+    <div id="pageContent">
+
+      <h1>Choose your boots</h1>
+
+      <div>
+
+        <div id="selectionsPane">
+          <label for="bootChooserControl">Boot style:</label>&nbsp;
+          <select id="bootChooserControl" name="bootStyle"></select>
+        </div>
+
+        <div id="productDetailPane"></div>
+
+      </div>
+
+    </div>
+
+  </body>
+
+</html>
