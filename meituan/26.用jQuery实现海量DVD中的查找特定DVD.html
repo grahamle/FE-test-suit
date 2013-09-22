@@ -77,6 +77,10 @@
       	$('div.template.'+filterType).children().clone().addClass('qualifier').appendTo(filterItem).trigger('adjustName');
       	$('option[value=""]', this).remove();
       });
+
+      $('button.filterRemover').live('click', function() {
+      	$(this).closest('div.filterItem').remove();
+      })
     });
   </script>
 </head>
