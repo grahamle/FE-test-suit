@@ -54,7 +54,7 @@
   	  width: 64px;
 	}
   </style>
-  <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.4.4.min.js"></script>
   <script type="text/javascript">
     var filterCount = 0;
 
@@ -68,7 +68,15 @@
       	var suffix = $(this).closest('.filterItem').data('suffix');
       	if(/(\w)+\.(\d)+$/.test($(this).attr('name'))) return;
       	$(this).attr('name', $(this).attr('name')+suffix);
-      })；
+      });
+
+      $('select.filterChooser').live('change', function() {
+      	var filterType = $(':selected', this).attr('data-filter-type');
+      	var filterItem = $(this).closest('.filterItem');
+      	$('.qualifier', filterItem).remove();
+      	$('div.template.'+filterType).children().clone().addClass('qualifier').appendTo(filterItem).trigger('adjustName');
+      	$('option[value=""]', this).remove();
+      });
     });
   </script>
 </head>
