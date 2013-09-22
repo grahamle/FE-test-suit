@@ -3,9 +3,84 @@
 <head>
   <title>用jQuery实现在海量DVD中查找特定的一张</title>
   <meta charset="utf-8" />
+  <style type="text/css">
+    body {
+    	font-size: 10pt;
+    }
+    #templates {
+  	  display: none;
+	}
+	#pageContent {
+		width: 720px;
+		background-color: white;
+		color: #444;
+		border: 2px ridge #888;
+		margin: 80px auto;
+		padding: 8px 32px;
+	}
+	h1, h2 {
+		text-align: center;
+		margin: 0;
+	}
+	fieldset, legend {
+		border: 2px ridge silver;
+	}
+	fieldset {
+		padding-top: 12px;
+	}
+	legend {		
+  	  padding: 3px 12px;
+  	  background-color: silver;
+  	  font-weight: bold;
+	}
+	#filterPane {
+  	  margin-bottom: 16px;
+	}
+	.filterItem * {
+  	  margin-right: 4px;
+  	  margin-bottom: 4px;
+	}
+	#resultsPane {
+      margin-top: 14px;
+	}
+	#resultsPane span.none{
+      color: silver;
+      font-style: italic;
+	}
+	input.numeric {
+  	  width: 48px;
+	}
+	input.dateValue {
+  	  width: 64px;
+	}
+  </style>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+  <script type="text/javascript">
+    var filterCount = 0;
+
+    $(function() {
+
+    });
+  </script>
 </head>
 <body>
- 
+<div id="pageContent">
+  <h1>DVD Ambassador</h1>
+  <h2>Disc Locator</h2>
+
+  <form id="filtersForm" action="/fetchFilteredResults" method="post">
+  	<fieldset id="filtersPane">
+  	  <legend>Filters</legend>
+  	  <div id="filterPane"></div>
+  	  <div class="buttonBar">
+  	  	<button type="button" id="addFilterButton">Add Filter</button>
+        <button type="submit" id="applyFilterButton">Apply Filters</button>
+  	  </div>
+  	</fieldset>
+
+  	<div id="resultsPane"><span class="none">No results displayed</span></div>
+  </form>
+</div> 
 
 <!-- 以下为需要调用的模版 -->
 <div id="templates">
@@ -14,8 +89,39 @@
 
     <select name="filter" class="filterChooser" title="Select a property to filter">
       <option value="" data-filter-type="" selected="selected">-- choose a filter --</option>
+      <option value="title" data-filter-type="stringMatch">DVD Title</option>
+      <option value="category" data-filter-type="stringMatch">Category</option>
+      <option value="binder" data-filter-type="numberRange">Binder</option>
+      <option value="release" data-filter-type="dateRange">Release Date</option>
+      <option value="viewed" data-filter-type="boolean">Viewed?</option>
     </select>
   </div>
+
+  <div class="template stringMatch">
+    <select name="stringMatchType">
+      <option value="*">contains</option>
+      <option value="^">starts with</option>
+      <option value="$">ends with</option>
+      <option value="=">is exactly</option>
+    </select>
+    <input type="text" name="term"/>
+  </div>
+
+  <div class="template numberRange">
+    <input type="text" name="numberRange1" class="numeric"/> <span>through</span>
+    <input type="text" name="numberRange2" class="numeric"/>
+  </div>
+
+  <div class="template dateRange">
+    <input type="text" name="dateRange1" class="dateValue"/> <span>through</span>
+    <input type="text" name="dateRange2" class="dateValue"/>
+  </div>
+
+  <div class="template boolean">
+    <input type="radio" name="booleanFilter" value="true" checked="checked"/> <span>Yes</span>
+    <input type="radio" name="booleanFilter" value="false"/> <span>No</span>
+  </div>
+
 </div>
 </body>
 </html>
