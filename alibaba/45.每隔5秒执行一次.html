@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>每隔五秒</title>
+  <meta charset="utf-8" />
+</head>
+<body>
+  <script type="text/javascript">
+    function test() {
+    	this.name = "taobao";
+    	that = this;
+    	var waitMes = function() {
+			alert(that.name);
+			setTimeout(waitMes, 5000);
+    	};
+    	/*
+    	 * setTimeout本身就是只执行一次，可以用递归或setInterval
+		var waitMes = function() {
+			setInterval(function() {
+				alert(that.name)
+			}, 5000);
+		}
+    	 */
+    	
+    	return waitMes;
+    }
+    var _test = test();
+    _test();
+  </script>
+</body>
+</html>
