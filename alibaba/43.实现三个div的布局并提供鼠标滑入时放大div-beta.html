@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>按比例放大div</title>
+  <meta charset="utf-8" />
+  <style type="text/css">
+    /*css style alpha 用浮动进行布局
+    * {
+      margin:0;
+      padding: 0;
+    }
+    body {
+      padding: 20px;
+    }
+    div {
+      background: #ccc;
+    }
+    #first {
+      float:left;
+      width:100px; 
+      height:150px
+    }  
+    #second {
+      clear:left;
+      float:left;
+      margin-top:10px;
+      width:100px;
+      height:150px}  
+    #third {
+      zoom:1; 
+      width:200px;
+      margin-left:110px;
+      height:310px;
+    } */
+    
+    /*css style beta: 用绝对定位进行布局*/
+    body{ margin:0; padding:0}  
+    div{background:#CCCCCC; position:absolute}  
+    #first{width:100px; height:150px}  
+    #second{top:160px;width:100px;height:150px}  
+    #third{ width:200px; height:310px; left:110px} 
+  </style>
+  <script type="text/javascript">
+    function zoom(id,x,y){  
+      var obj=document.getElementById(id);   
+      var dW=obj.clientWidth; 
+      var dH=obj.clientHeight;   
+ 
+      obj.onmouseover=function() {  
+        this.style.width=dW*x+"px";   
+        this.style.height=dH*y+"px"; 
+        this.style.backgroundColor="#f00";   
+        this.style.zIndex=1;  
+      }  
+      obj.onmouseout=function(){ // 鼠标移出，设回默认值  
+        this.style.width="";  
+        this.style.height="";  
+        this.style.padding="";  
+        this.style.backgroundColor="";  
+        this.style.zIndex="";  
+      }  
+    }
+    window.onload = function() {  
+      zoom("first",1.25,1.25);  
+      zoom("second",1.25,1.25);  
+      zoom("third",1.25,1.25); 
+    }
+  </script>
+</head>
+<body>
+  <div id="first"></div>
+  <div id="second"></div>
+  <div id="third"></div>  
+</body>
+</html>

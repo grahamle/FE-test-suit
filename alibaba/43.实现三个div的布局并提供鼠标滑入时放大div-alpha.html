@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>按比例放大div</title>
+  <meta charset="utf-8" />
+  <style type="text/css">
+    /*css style crystal: 用浮动结合margin-left，div顺序与下个版本不同*/
+    * {
+        margin:0;
+        padding: 0;
+    }
+    #first {
+    	float: left;
+    	margin-left: -310px;
+    	width: 100px;
+    	height: 150px;
+    	background: #f33;
+    }
+    #second {
+    	float: left;
+    	margin-left: -310px;
+    	margin-top: 160px;
+    	width: 100px;
+    	height: 150px;
+    	background: #ff0;
+    }
+    
+    #third {
+    	margin-left: 110px;
+    	width: 200px;
+    	height: 310px;
+    	background: #c00;
+    	float: left;
+    }
+  </style>
+  <script type="text/javascript">
+    function zoomin(id, x, y) {
+    	var obj = document.getElementById(id);
+    	var eleWidth = obj.clientWidth;
+    	var eleHeight = obj.clientHeight;
+
+    	obj.onmouseover = function() {
+    		this.style.position = "absolute";
+    		this.style.width = eleWidth * x + "px";
+    		this.style.height = eleHeight * y + "px";
+    		this.style.backgroundColor = "#f00";
+    		this.style.zIndex = 3;
+
+    		if (/third/.test(id)) {
+    			document.getElementById("first").style.marginLeft = -310 - eleWidth * (x-1) + "px";
+    			document.getElementById("second").style.marginLeft = -310 - eleWidth * (x-1) + "px";
+    		}
+    	}
+
+    	obj.onmouseout = function() {
+    		this.style.width = "";
+    		this.style.height = "";
+    		this.style.padding = "";
+    		this.style.backgroundColor = "";
+    		this.style.zIndex = "";
+
+    		if (/third/.test(id)) {
+    			document.getElementById("first").style.marginLeft = "";
+    			document.getElementById("second").style.marginLeft = "";
+    		}
+    	}
+    }
+     
+  </script>
+</head>
+<body>
+  <div id="third">3</div>
+  <div id="second">2</div>
+  <div id="first">1</div>
+</body>
+</html>
