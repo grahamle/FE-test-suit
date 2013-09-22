@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>按比例放大div</title>
+  <meta charset="utf-8" />
+    <style type = "text/css">
+      div{
+        position:absolute;
+        font-size:20px;
+        font-weight:500;
+        line-height:200px;
+        text-align:center;
+        background:#c8d6db;
+      }
+      #div1{
+        left:5px;
+        top:20px;
+        width:100px;
+        height:200px;              
+      }
+      #div2{
+        left:5px;
+        top:225px;
+        width:100px;
+        height:150px;
+      }
+      #div3{
+        left:110px;
+        top:20px;
+        width:200px;
+        height:355px;
+      }
+    </style>
+    <script type = "text/javascript">
+      window.onload = function(){
+        var divs = document.getElementsByTagName("div");
+        var len = divs.length;
+        for(var j = 0;j<len;j++){
+          //w和h是给每个div设置的自定义属性，在function中进行了if判断，
+          //如果有定义好了，才继续走程序
+          divs[j].w = divs[j].offsetWidth;
+          divs[j].h = divs[j].offsetHeight;
+        }
+        for(var i = 0;i<len;i++){
+          zoom(divs[i]);
+        }
+      }
+                        
+      function zoom(obj){
+        if (obj.w && obj.h) {
+          obj.onmouseover = function(){
+            var w = this.w;
+            var h = this.h;
+            this.style.width = (w + w * 0.25) + "px";
+            this.style.height = (h + h * 0.25) + "px";
+            this.style.border = "1px solid";
+            this.style.background = "#d2ddb9";
+            this.style.zIndex = "1";
+          }
+          obj.onmouseout = function(){
+            var w = this.w;
+            var h = this.h;
+            this.style.width = w + "px";
+            this.style.height = h + "px";
+            this.style.border = "";
+            this.style.background = "#c8d6db";
+            this.style.zIndex = "0";
+          }
+        }
+      }
+    </script>
+                
+</head>
+<body>
+  <div id = "div1">A</div>
+  <div id = "div2">B</div>
+  <div id = "div3">C</div>  
+</body>
+</html>
