@@ -1,0 +1,167 @@
+@charset "UTF-8";
+/* reset */
+*{
+	padding: 0;
+	margin: 0;
+}
+
+body{
+	width: 1300px;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 14px;
+	margin: 0px auto;
+}
+
+#wrapper{
+	margin: 0 auto;
+	width: 1300px;
+}
+
+#header{
+	width: 100%;
+	height: 150px;
+}
+
+#logo{
+	background: url('images/logo.jpg') no-repeat;
+	float: left;
+	width: 300px;
+	height: 88px;	
+	margin: 30px;
+}
+
+.navigation{
+	float: right;
+	margin-top: 90px;
+	width: 550px;
+}
+
+.navigation li{
+	float: left;
+	list-style: none;	
+}
+
+.navigation li:last-child a{
+	border-right: none;
+}
+
+.navigation li a{
+	float: left;
+	color: #27A9E1;
+	padding: 6px 20px;
+	text-decoration: none; 
+	border-right: 1px solid #27A9E1;
+	font-size: 16px;	
+}
+
+ul a:hover,
+ul a:focus,
+ul .selected a {
+  	color: green;
+}
+
+ul.navigation li.nav-on {
+	position: relative;
+}
+
+ul.navigation li ul {
+	position: absolute;
+	width: 5em;
+	left: -999em;
+	top: 2em;
+	margin-left: -1px;
+}
+
+.navigation li:hover ul {
+	left: auto;
+}
+
+ul.navigation li li a {
+	width: 5em;
+	color: #fff;
+	background-color: #0099FF; 
+	border-top: 1px solid #E4FFD3;
+	border-bottom: 1px solid #486B02;	
+	border-left: 0;
+	border-right: 0;
+}
+
+#picture{
+	background:	url('images/picture.jpg') no-repeat;
+	width: 1300px;
+	height: 733px;
+}
+
+#icon_container{
+	/*background: url('images/icon background.png') no-repeat;*/
+	background: rgba(255, 255, 255, 0.8);
+	width: 1300px;
+	height: 206px;
+	position: relative;	
+	top: 527px;
+	right: 0;
+}
+
+#in-room{
+	width: 650px;
+	height: 30px;
+	position: absolute;
+	left: 0;
+	top: 10px;
+	margin-top: 10px;
+	font-size: 10px;
+	color: #181464;
+	text-align: center;
+	border-right: 2px solid #181464;
+	/*padding: 20px 0;*/
+}
+
+#out-room{
+	left: 650px;
+	width: 650px;
+	height: 30px;
+	position: absolute;
+	top: 10px;
+	margin-top: 10px;
+	font-size: 10px;
+	color: #181464;
+	text-align: center;
+	/*padding: 20px 0;*/
+}
+
+.icons{
+	position: absolute;
+	left: 0;
+	top: 65px;
+	margin:10px 20px;
+	width: 1300px;
+}
+.icons li{
+	float: left;
+	width: 96px;
+	height: 96px;
+	padding: 15px;
+	list-style: none;	
+}
+
+.icons a span {
+	display: none;
+}
+
+.icons a:hover {
+	font-size: 100%;
+	font-weight: bold;
+	color: #000;
+	text-decoration: none;
+	position: relative;
+	text-align: center;
+}
+
+.icons a:hover span {
+	display: block;
+	position: absolute;
+	top: -8.5em;
+	/*left: 2em;*/
+	width: 6.9em;
+	/*background: rgba(11, 178, 255, 0.6);*/
+}
