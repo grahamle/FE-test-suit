@@ -81,6 +81,15 @@
               temp = x;
             }
           };
+          iconlist[x].onmouseover = function() {
+            if (temp == x) {
+              this.style.borderBottom = "#FBB03B 1.3em solid";
+            } else {
+              iconlist[temp].style.borderBottom = "";
+              iconlist[x].style.borderBottom = "#FBB03B 1.3em solid";
+              temp = x;
+            }
+          }
         }(i));
       }
     </script>
