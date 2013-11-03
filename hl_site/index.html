@@ -5,6 +5,7 @@
 		<meta charset="UTF-8">
 		<title>Ocean Hotel</title>
        <link rel="stylesheet" href="styles.css">
+       <link href='http://fonts.googleapis.com/css?family=Expletus+Sans' rel='stylesheet' type='text/css'>
 	</head>
 
 	<body>
@@ -15,25 +16,11 @@
 
         <div id="nav">
 				  <ul class="navigation">
-				  	<li><a href="index.html">Home</a></li>
-				  	<li onmouseover="this.className='nav-on'" onmouseout="this.className=''"><a href="">About</a>
-              <ul>
-				  			<li><a href="">History</a></li>
-                <li><a href="">Location</a></li>
-                <li><a href="">Partners</a></li>
-                <li><a href="">Social</a></li>
-              </ul>
-            </li>
-				  	<li onmouseover="this.className='nav-on'" onmouseout="this.className=''"><a href="">Reservation</a>
-              <ul>
-				  			<li><a href="">Rooms</a></li>
-                <li><a href="">Meetings</a></li>
-                <li><a href="">Weddings</a></li>
-                <li><a href="">Events</a></li>
-              </ul>
-            </li>
-				  	<li><a href="">Rates</a></li>
-           	<li><a href="">Contact</a></li>
+				  	<li><a href="index.html" class="current">HOME</a></li>
+				  	<li><a href="">ABOUT</a></li>
+				  	<li><a href="">RESERVATION</a></li>
+				  	<li><a href="">RATES</a></li>
+           		<li><a href="">CONTACT</a></li>
 				  </ul>
         </div>
                 
@@ -43,30 +30,49 @@
         <div id="picture">	
           <div id="icon_container">
            	<div id="in-room">	
-          		<h1>In-Room</h1>
+          		<h1>Room Service</h1>
           	</div><!-- End in-room -->
           
           	<div id="out-room">	
-          		<h1>Out-Room</h1>
+          		<h1>Hotel Service</h1>
           	</div><!-- End out-room -->                 
            	
-            <ul class="icons">
+            <ul id="icons">
           		<li><a href="#"><img src="images/hair dryer thumb.png" /><span>Hair Dryer</span></a></li> 
               <li><a href="#"><img src="images/mini-bar thumb.png" /><span>Mini-bar</span></a></li>
              	<li><a href="#"><img src="images/coffee-maker thumb.png" /><span>Coffee Maker</span></a></li>
-              <li><a href="#"><img src="images/wi-fi connection thumb.png" /><span>Wi-fi Connection</span></a></li>
+              <li><a href="#"><img src="images/wi-fi connection thumb.png" /><span>Wi-fi</span></a></li>
               <li><a href="#"><img src="images/room service thumb.png" /><span>Room Service</span></a></li>
               <li><a href="#"><img src="images/voice mail thumb.png" /><span>Voice Mail</span></a></li>
               <li><a href="#"><img src="images/wakeup calls thumb.png" /><span>Wakeup Calls</span></a></li>
               <li><a href="#"><img src="images/dry-cleaning service thumb.png" /><span>Dry Cleaning</span></a></li>
-              <li><a href="#"><img src="images/movies on-demand thumb.png" /><span>Movies On-demand</span></a></li>
-              <li><a href="#"><img src="images/exercise room thumb.png" /><span>Exercise Room</span></a></li>
+              <li><a href="#"><img src="images/movies on-demand thumb.png" /><span>Movies</span></a></li>
+              <li><a href="#"><img src="images/exercise room thumb.png" /><span>Exercise</span></a></li>
            	</ul>
           </div><!-- End icon_container -->
+
+          <div>
+            <img id="content" src="">
+          </div>
+
         </div><!-- End picture -->
 			</div><!-- End main_container -->
             
     </div><!-- End wrapper -->
 
+    <script type="text/javascript">
+      var img = document.getElementById("content");
+      var iconContainer = document.getElementById("icon_container");
+      var iconlist = document.getElementById("icons").getElementsByTagName("li");
+      var len = iconlist.length;
+      for (var i=0; i<len; i++) {
+        (function(x) {
+          iconlist[x].onclick = function() {
+            img.src = "images/" + x + ".jpg";
+            iconContainer.style.top = 0;
+          };
+        }(i));
+      }
+    </script>
 	</body>
 </html>

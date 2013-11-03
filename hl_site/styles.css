@@ -23,7 +23,7 @@ body{
 }
 
 #logo{
-	background: url('images/logo.jpg') no-repeat;
+	background: url('images/logo.png') no-repeat;
 	float: left;
 	width: 300px;
 	height: 88px;	
@@ -33,7 +33,7 @@ body{
 .navigation{
 	float: right;
 	margin-top: 90px;
-	width: 550px;
+	width: 600px;
 }
 
 .navigation li{
@@ -47,58 +47,44 @@ body{
 
 .navigation li a{
 	float: left;
-	color: #27A9E1;
+	color: #858585;
 	padding: 6px 20px;
-	text-decoration: none; 
-	border-right: 1px solid #27A9E1;
-	font-size: 16px;	
+	text-decoration: none; 	
+	font-size: 17px;
+	font-family: 'Expletus Sans', cursive;	
 }
 
 ul a:hover,
 ul a:focus,
 ul .selected a {
-  	color: green;
+  	color: #27A9E1;
 }
 
-ul.navigation li.nav-on {
-	position: relative;
+ul.navigation a:hover, ul.navigation a:focus {
+	border-bottom: aqua 2px solid;
 }
 
-ul.navigation li ul {
-	position: absolute;
-	width: 5em;
-	left: -999em;
-	top: 2em;
-	margin-left: -1px;
-}
-
-.navigation li:hover ul {
-	left: auto;
-}
-
-ul.navigation li li a {
-	width: 5em;
-	color: #fff;
-	background-color: #0099FF; 
-	border-top: 1px solid #E4FFD3;
-	border-bottom: 1px solid #486B02;	
-	border-left: 0;
-	border-right: 0;
+.navigation li a.current {
+	color: #27A9E1;
 }
 
 #picture{
-	background:	url('images/picture.jpg') no-repeat;
+	background: url('images/picture.jpg') no-repeat;
 	width: 1300px;
 	height: 733px;
 }
+/*
+#content {
+
+}*/
 
 #icon_container{
-	/*background: url('images/icon background.png') no-repeat;*/
 	background: rgba(255, 255, 255, 0.8);
+	border-radius: 1em 1em 0 0;
 	width: 1300px;
-	height: 206px;
+	height: 198px;
 	position: relative;	
-	top: 527px;
+	top: 535px;
 	right: 0;
 }
 
@@ -109,10 +95,12 @@ ul.navigation li li a {
 	left: 0;
 	top: 10px;
 	margin-top: 10px;
+	padding-left: 34px;
 	font-size: 10px;
+	font-family: 'Expletus Sans', cursive;
 	color: #181464;
-	text-align: center;
-	border-right: 2px solid #181464;
+	/*text-align: center;
+	border-right: 2px solid #181464;*/
 	/*padding: 20px 0;*/
 }
 
@@ -123,20 +111,22 @@ ul.navigation li li a {
 	position: absolute;
 	top: 10px;
 	margin-top: 10px;
+	padding-left: 14px;
 	font-size: 10px;
+	font-family: 'Expletus Sans', cursive;
 	color: #181464;
-	text-align: center;
+	/*text-align: center;*/
 	/*padding: 20px 0;*/
 }
 
-.icons{
+#icons{
 	position: absolute;
 	left: 0;
-	top: 65px;
+	top: 45px;
 	margin:10px 20px;
 	width: 1300px;
 }
-.icons li{
+#icons li{
 	float: left;
 	width: 96px;
 	height: 96px;
@@ -144,24 +134,24 @@ ul.navigation li li a {
 	list-style: none;	
 }
 
-.icons a span {
+#icons a span {
 	display: none;
 }
 
-.icons a:hover {
+#icons a:hover {
 	font-size: 100%;
-	font-weight: bold;
 	color: #000;
 	text-decoration: none;
 	position: relative;
 	text-align: center;
 }
 
-.icons a:hover span {
+/*#icons a:hover span {
 	display: block;
 	position: absolute;
-	top: -8.5em;
-	/*left: 2em;*/
+	top: -7.5em;
 	width: 6.9em;
+	font-family: 'Expletus Sans', cursive;
 	/*background: rgba(11, 178, 255, 0.6);*/
-}
+	/*left: 2em;*/	
+/*}*/
