@@ -85,6 +85,8 @@ ul.navigation a:hover, ul.navigation a:focus {
 	height: 198px;
 	position: relative;	
 	top: 535px;
+	-webkit-transition-property: top;
+    -webkit-transition-duration: 0.5s;
 	right: 0;
 }
 
@@ -155,3 +157,9 @@ ul.navigation a:hover, ul.navigation a:focus {
 	/*background: rgba(11, 178, 255, 0.6);*/
 	/*left: 2em;*/	
 /*}*/
+
+#content {
+	opacity: 0;
+	-webkit-transition-property: opacity;
+    -webkit-transition-duration: 1.8s;
+}

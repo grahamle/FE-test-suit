@@ -66,10 +66,20 @@
       var iconlist = document.getElementById("icons").getElementsByTagName("li");
       var len = iconlist.length;
       for (var i=0; i<len; i++) {
-        (function(x) {
+        var temp = 0;
+        (function(x) {          
           iconlist[x].onclick = function() {
             img.src = "images/" + x + ".jpg";
+            img.style.opacity = 1;
             iconContainer.style.top = 0;
+            iconContainer.style.borderRadius = 0;
+            if (temp == x) {
+              this.style.borderBottom = "#FBB03B 1.3em solid";
+            } else {
+              iconlist[temp].style.borderBottom = "";
+              iconlist[x].style.borderBottom = "#FBB03B 1.3em solid";
+              temp = x;
+            }
           };
         }(i));
       }
