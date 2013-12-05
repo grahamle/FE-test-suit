@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Kusama's Life</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+	<div id="lifeWrapper">			
+		<header>
+      <img href="index.html" class="logo" src="images/logo.png" onclick="window.location='index.html'" />
+      <ul class="nav">
+				<li class="rope selected">
+          <a href="life.html">
+            <img src="images/life.png" alt="Navigation botton" />
+            <span>Life</span>
+          </a>
+        </li>               
+				<li class="rope">
+          <a href="novel.html">
+            <img src="images/novel.png" alt="Navigation botton" />
+            <span>Novel</span>
+          </a>
+        </li>
+        <li class="rope">
+          <a href="art.html">
+            <img src="images/art.png" alt="Navigation botton" />
+            <span>Art</span>
+          </a>
+        </li>
+        <li class="rope">
+          <a href="exhibition.html">
+            <img src="images/expo.png" alt="Navigation botton" />
+            <span>Expo</span>
+          </a>
+        </li>
+      </ul>
+    </header>                                             
+    <section id="lifeContent"> 
+           
+      <article>
+        <img src="images/circle.png" />
+      </article>
+        
+      <div id="middle">
+        <img src="images/Japan-1.png" />
+      	<ul id="year">
+      		<li><a href="images/1929.png">1929</a></li>
+       		<li><a href="images/1939.png">1939</a></li>
+       		<li><a href="images/1948.png">1948</a></li>
+       		<li><a href="images/1950.png">1950</a></li>
+       		<li><a href="images/1952.png">1952</a></li>
+       		<li><a href="images/1954.png">1954</a></li>
+       		<li><a href="images/1955.png">1955</a></li>
+        </ul>
+        <img id="bottom" src="images/explain.png" />
+      </div>
+      <aside>
+        <a href="#"><img class="right" src="images/arrow.png" /></a>
+      </aside>
+    </section><!-- END lifeContent -->
+  </div><!-- END wrapper -->
+
+  <footer>
+    &copy; Copyright 2013 Yayoi Kusama
+  </footer>
+  
+  <script type="text/javascript" src="js/jquery-2.0.2.js"></script>
+  <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+  <script type='text/javascript'>
+    $(function(){
+    $("#year a").click(function(evt) {
+      evt.preventDefault(); // don't take me to a browser window because its an anchor
+      $("article").html( 
+        $("<img>", { src: this.href}) ); // change the html source of the empty box
+      });
+    }); 
+  </script>
+</body>
+</html>

@@ -1,0 +1,346 @@
+@charset "UTF-8";
+/*common body style*/
+body{
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+
+/*common style for all wrapper*/
+#wrapper, #lifeWrapper, 
+#novelWrapper, #artWrapper, #exhibitWrapper {
+	width: 1200px;
+	height: 800px;
+	margin: 0 auto;
+	position: relative;
+	background: url('images/background.png')
+}
+
+/*exclusive style for all wrapper*/
+#wrapper {
+	background: url('images/home.png') no-repeat;
+}
+
+#lifeWrapper {
+
+}
+
+#novelWrapper {
+	/*Todo*/
+}
+
+#artWrapper {
+
+}
+
+#exhibitWrapper {
+	/*Todo*/
+}
+
+/* ..............style for index.html page............... */
+
+/*common style for exhib, life, and work*/
+#exhibition, #life, #novelIdx, #artIdx{
+	position: absolute;
+	font-family:"Trebuchet MS", Georgia, serif;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+#exhibition a, #life a, #novelIdx a, #artIdx a {
+	text-decoration: none;
+	color: #ffbe00;		
+}
+
+#exhibition a:hover, #exhibition a:focus,
+#life a:hover, #life a:focus,
+#novelIdx a:hover, #novelIdx a:focus,
+#artIdx a:hover, #artIdx a:focus {
+	color: #d2202c;
+}
+
+/*exclusive style for exhib, life, and work*/
+#exhibition {
+	top: 208px;	
+	left: 380px;
+}
+
+#life {
+	top: 530px;
+	left: 384px;
+}
+
+#novelIdx {
+	top: 423px;
+	left: 65px;	
+}
+
+#artIdx {
+	top: 235px;
+	left: 105px;
+}
+
+/* ..............style for life.html page............... */
+
+/*style for header*/
+header {
+	width: 1200px;
+	height: 225px;
+	position: relative;
+}
+
+header img.logo {
+	padding-left: 20px;
+	margin: 20px;
+}
+
+header img.logo:hover {
+	cursor: pointer;
+}
+
+.nav {
+	display: inline-block;
+}
+
+.nav li {
+	position: absolute;
+	list-style: none;
+	top: -48px;
+}
+
+.nav li.selected {
+	top: 0;
+}
+
+.nav li a {
+	text-decoration: none;
+}
+
+.nav li a span {
+	position: absolute;
+	display: inline-block;
+	/*top: 48px; 这个只是刚好补差了 li 绝对定位往top的负值*/
+	/*left: 0; 以li为基准进行的定位*/
+	font-size: 22px;
+	color: #f4f2db;
+	/*top: 130px;*/
+	bottom: 35px;
+	padding-left: 20px;
+}
+
+.nav li:nth-child(2) a span {
+	padding-left: 17px;
+}
+
+.nav li:nth-child(3) a span {
+	padding-left: 30px;
+}
+
+.nav li.selected a span {
+	color: #4f7800;
+}
+
+.nav li:first-child {
+	left: 50%;
+}
+
+.nav li:nth-child(2) {
+	left: 60%;
+}
+
+.nav li:nth-child(3) {
+	left: 70%;
+}
+
+.nav li:last-child {
+	left: 80%;
+}
+
+.nav li:first-child a span {
+	padding-left: 28px;
+}
+
+/*style for section*/
+section {
+	height: 539px;
+	width: 1000px;
+	margin: 0 auto;
+	position: relative;
+}
+
+article {
+	float: left;
+	margin-top: 1em;
+}
+
+#middle {
+	float: left;
+	margin-left: 3em;
+}
+
+aside a.left img {
+	position: absolute;
+	top: 13em;
+
+}
+
+aside a.right img {
+	position: absolute;
+	top: 13em;
+	right: 1em;
+}
+
+#year {
+	list-style: none;	
+	font-size: 19px;
+	position: absolute;
+}
+
+#year li {
+	position: absolute;
+}
+
+#year li:first-child {
+	top: -355px;
+	left: 35px;
+}
+
+#year li:nth-child(2) {
+	top: -433px;
+	left: 192px;
+}
+
+#year li:nth-child(3) {
+	top: -350px;
+	left: 345px;
+}
+
+#year li:nth-child(4) {
+	top: -183px;
+	left: 372px;
+}
+
+#year li:nth-child(5) {
+	top: -68px;
+	left: 255px;
+}
+
+#year li:nth-child(6) {
+	top: -85px;
+	left: 90px;
+}
+
+#year li:nth-child(7) {
+	top: -207px;
+	left: 6px;
+}
+
+#year li a{
+	text-decoration: none;
+	color: #4f7800;	
+	font-family:"Trebuchet MS", Georgia, serif;
+}
+
+#bottom {
+	position: absolute;
+	margin-top: 20px;
+}
+
+/*style for novel*/
+#novelContent article {
+	display: none;
+}
+
+#novelContent article.selected {
+	display: block;
+	margin-left: 140px;
+}
+
+#novelContent article.selected ul li {
+	list-style: none;
+	float: left;
+}
+
+#novelContent article.selected ul li:nth-child(2) {
+	margin-left: 80px;
+	margin-right: 80px;
+}
+
+#novelContent article.selected ul li:nth-child(3) {
+	margin-left: 120px;
+	margin-right: 80px;
+}
+
+/*style for art*/
+#artContent article {
+	display: none;
+}
+
+#artContent article.selected {
+	display: block;
+	margin-left: 20px;
+}
+
+#artContent article.selected ul li {
+	list-style: none;
+	float: left;
+}
+
+/*style for expo*/
+.global{
+	margin-left: 100px;	
+}
+
+#exhibition{
+	list-style: none;	
+	margin: 0 auto;
+}
+
+.korea{
+	margin-left: 590px;
+	margin-top: 175px;
+}
+
+.japan{
+	margin-left: 625px;
+	margin-top: -25px;	
+}
+
+.argentina{
+	margin-left: 45px;
+	margin-top: 190px;
+}
+
+.norway{
+	margin-left: 240px;
+	margin-top: -360px;	
+}
+
+.england{
+	margin-left: 215px;
+	margin-top: 5px;	
+}
+
+.brasil{
+	margin-left: 82px;
+	margin-top: 230px;	
+}
+
+.usa{
+	margin-left: 10px;
+	margin-top: -260px;
+}
+
+.china{
+	margin-left: 580px;
+	margin-top: 20px;	
+}
+/*style for footer*/
+footer {
+	margin: 0 auto;
+	width: 215px;
+	padding: 0 5px;
+	background: white;
+	color: #8f8f8f;
+	font-size: .8em;
+}
