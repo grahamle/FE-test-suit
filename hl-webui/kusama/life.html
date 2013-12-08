@@ -4,6 +4,43 @@
 <meta charset="UTF-8">
 <title>Kusama's Life</title>
 <link rel="stylesheet" href="styles.css">
+<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+
+<script type="text/javascript" src="js/jquery-2.0.2.js"></script>
+  <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+  <script type='text/javascript'>
+    $(document).ready(function(){
+      // handle the time clicker
+      $('#year a').on('click', function(evt) {
+        evt.preventDefault();
+        $("article").find('img.placeholder').attr('src', this.href);  // More stable than before
+      });
+
+      // handle the arrow clicker
+      $('#lifeContent').find('aside a.right').click(function(e) {
+        e.preventDefault();
+        var current = $('article.selected');
+        if (!current.hasClass('end')) {
+          $('article.selected').next().addClass('selected');
+          current.removeClass('selected');
+        } else {
+          current.addClass('selected');
+        }
+      });
+      $('#lifeContent').find('aside a.left').click(function(e) {
+        e.preventDefault();
+        var current = $('article.selected');
+        if (!current.hasClass('start')) {
+          $('article.selected').prev().addClass('selected');
+          current.removeClass('selected');
+        } else {
+          current.addClass('selected');
+        }
+      });
+    }); 
+	
+  </script>
 </head>
 
 <body>
@@ -18,15 +55,9 @@
           </a>
         </li>               
 				<li class="rope">
-          <a href="novel.html">
-            <img src="images/novel.png" alt="Navigation botton" />
-            <span>Novel</span>
-          </a>
-        </li>
-        <li class="rope">
-          <a href="art.html">
-            <img src="images/art.png" alt="Navigation botton" />
-            <span>Art</span>
+          <a href="work.html">
+            <img src="images/work.png" alt="Navigation botton" />
+            <span>Work</span>
           </a>
         </li>
         <li class="rope">
@@ -36,47 +67,109 @@
           </a>
         </li>
       </ul>
-    </header>                                             
+    </header> 
+                                                
     <section id="lifeContent"> 
-           
-      <article>
-        <img src="images/circle.png" />
-      </article>
-        
-      <div id="middle">
-        <img src="images/Japan-1.png" />
-      	<ul id="year">
-      		<li><a href="images/1929.png">1929</a></li>
-       		<li><a href="images/1939.png">1939</a></li>
-       		<li><a href="images/1948.png">1948</a></li>
-       		<li><a href="images/1950.png">1950</a></li>
-       		<li><a href="images/1952.png">1952</a></li>
-       		<li><a href="images/1954.png">1954</a></li>
-       		<li><a href="images/1955.png">1955</a></li>
-        </ul>
-        <img id="bottom" src="images/explain.png" />
-      </div>
       <aside>
-        <a href="#"><img class="right" src="images/arrow.png" /></a>
+        <a class="left" href="#"><img src="images/arrowL.png" /></a>
       </aside>
+      
+      <article class="selected start">
+        <div id="article">
+          <img class="placeholder" src="images/circle1.png" />
+        </div>
+          
+        <div id="middle">
+          <img src="images/Japan-1.png" />
+        	<ul id="year">
+        		<li><a href="images/life/1929.png">1929</a></li>
+         		<li><a href="images/life/1939.png">1939</a></li>
+         		<li><a href="images/life/1948.png">1948</a></li>
+         		<li><a href="images/life/1950.png">1950</a></li>
+         		<li><a href="images/life/1952.png">1952</a></li>
+         		<li><a href="images/life/1954.png">1954</a></li>
+         		<li><a href="images/life/1955.png">1955</a></li>
+          </ul>
+          <img id="bottom" src="images/explain.png" />
+        </div>
+      </article>
+
+      <article>
+        <div id="article">
+          <img class="placeholder" src="images/circle1.png" />
+        </div>
+        <div id="middle">
+          <img src="images/usa1.png" />
+          <ul id="year">
+            <li class="usa"><a href="images/life/1957.png">1957</a></li>
+            <li class="usa"><a href="images/life/1960.png">1960</a></li>
+            <li class="usa"><a href="images/life/1961.png">1961</a></li>
+            <li class="usa"><a href="images/life/1963.png">1963</a></li>
+            <li class="usa"><a href="images/life/1964.png">1964</a></li>
+            <li class="usa"><a href="images/life/1965.png">1965</a></li>
+            <li class="usa"><a href="images/life/1966.png">1966</a></li>
+            <li class="usa"><a href="images/life/1967.png">1967</a></li>
+            <li class="usa"><a href="images/life/1968.png">1968</a></li>
+            <li class="usa"><a href="images/life/1968.png">1970</a></li>
+            <li class="usa"><a href="images/life/1971.png">1971</a></li>
+          </ul>
+          <img id="bottom" src="images/explain.png" />
+        </div>
+      </article>
+
+      <article class="end">
+        <div id="article">
+          <img class="placeholder" src="images/circle1.png" />
+        </div>
+        <div id="middle">
+          <img src="images/Japan-3a.png" />
+          <ul id="year">
+            <li class="japan3"><a href="images/life/1973.png">1973</a></li>
+            <li class="japan3"><a href="images/life/1974.png">1974</a></li>
+            <li class="japan3"><a href="images/life/1975.png">1975</a></li>
+            <li class="japan3"><a href="images/life/1978.png">1978</a></li>
+            <li class="japan3"><a href="images/life/1981.png">1981</a></li>
+            <li class="japan3"><a href="images/life/1982.png">1982</a></li>
+            <li class="japan3"><a href="images/life/1983.png">1983</a></li>
+            <li class="japan3"><a href="images/life/1986.png">1986</a></li>
+            <li class="japan3"><a href="images/life/1987.png">1987</a></li>
+            <li class="japan3"><a href="images/life/1989.png">1989</a></li>
+            <li class="japan3"><a href="images/life/1990.png">1990</a></li>
+            <li class="japan3"><a href="images/life/1991.png">1991</a></li>
+            <li class="japan3"><a href="images/life/1993.png">1993</a></li>
+            <li class="japan3"><a href="images/life/1994.png">1994</a></li>
+            <li class="japan3"><a href="images/life/1995.png">1995</a></li>
+            <li class="japan3"><a href="images/life/1996.png">1996</a></li>
+            <li class="japan3"><a href="images/life/1998.png">1998</a></li>
+            <li class="japan3"><a href="images/life/2000.png">2000</a></li>
+            <li class="japan3"><a href="images/life/2001.png">2001</a></li>
+            <li class="japan3"><a href="images/life/2002.png">2002</a></li>
+            <li class="japan3"><a href="images/life/2003.png">2003</a></li>
+            <li class="japan3"><a href="images/life/2004.png">2004</a></li>
+            <li class="japan3"><a href="images/life/2005.png">2005</a></li>
+            <li class="japan3"><a href="images/life/2006.png">2006</a></li>
+            <li class="japan3"><a href="images/life/2008.png">2008</a></li>
+            <li class="japan3"><a href="images/life/2009.png">2009</a></li>
+            <li class="japan3"><a href="images/life/2011.png">2011</a></li>           
+          </ul>
+          <img id="bottom" src="images/explain.png" />
+        </div>
+      </article>
+
+      
+      <aside>
+        <a class="right" href="#"><img class="right" src="images/arrow.png" /></a>
+      </aside>
+      
     </section><!-- END lifeContent -->
+ 
+    
   </div><!-- END wrapper -->
 
   <footer>
     &copy; Copyright 2013 Yayoi Kusama
   </footer>
   
-  <script type="text/javascript" src="js/jquery-2.0.2.js"></script>
-  <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
-  <script type="text/javascript" src="js/app.js"></script>
-  <script type='text/javascript'>
-    $(function(){
-    $("#year a").click(function(evt) {
-      evt.preventDefault(); // don't take me to a browser window because its an anchor
-      $("article").html( 
-        $("<img>", { src: this.href}) ); // change the html source of the empty box
-      });
-    }); 
-  </script>
+  
 </body>
 </html>

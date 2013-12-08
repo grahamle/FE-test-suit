@@ -8,7 +8,7 @@ body{
 
 /*common style for all wrapper*/
 #wrapper, #lifeWrapper, 
-#novelWrapper, #artWrapper, #exhibitWrapper {
+#workWrapper, #artWrapper, #exhibitWrapper {
 	width: 1200px;
 	height: 800px;
 	margin: 0 auto;
@@ -25,12 +25,8 @@ body{
 
 }
 
-#novelWrapper {
+#worklWrapper {
 	/*Todo*/
-}
-
-#artWrapper {
-
 }
 
 #exhibitWrapper {
@@ -40,45 +36,41 @@ body{
 /* ..............style for index.html page............... */
 
 /*common style for exhib, life, and work*/
-#exhibition, #life, #novelIdx, #artIdx{
+#exhibition, #life, #work{
 	position: absolute;
-	font-family:"Trebuchet MS", Georgia, serif;
+	font-family: 'Varela Round', sans-serif;
 	font-size: 28px;
-	font-weight: bold;
+
 }
 
-#exhibition a, #life a, #novelIdx a, #artIdx a {
+#exhibition a, #life a, #work a {
 	text-decoration: none;
 	color: #ffbe00;		
 }
 
-#exhibition a:hover, #exhibition a:focus,
 #life a:hover, #life a:focus,
-#novelIdx a:hover, #novelIdx a:focus,
-#artIdx a:hover, #artIdx a:focus {
+#exhibition a:hover, #exhibition a:focus,
+#work a:hover, #work a:focus {
 	color: #d2202c;
 }
 
 /*exclusive style for exhib, life, and work*/
-#exhibition {
-	top: 208px;	
-	left: 380px;
-}
-
 #life {
-	top: 530px;
-	left: 384px;
+	top: 208px;	
+	left: 400px;
 }
 
-#novelIdx {
-	top: 423px;
+#exhibition {
+	top: 948px;
+	left: 447px;
+}
+
+#work {
+	top: 426px;
 	left: 65px;	
 }
 
-#artIdx {
-	top: 235px;
-	left: 105px;
-}
+
 
 /* ..............style for life.html page............... */
 
@@ -106,6 +98,7 @@ header img.logo:hover {
 	position: absolute;
 	list-style: none;
 	top: -48px;
+	font-family: 'Varela Round', sans-serif;
 }
 
 .nav li.selected {
@@ -122,45 +115,41 @@ header img.logo:hover {
 	/*top: 48px; 这个只是刚好补差了 li 绝对定位往top的负值*/
 	/*left: 0; 以li为基准进行的定位*/
 	font-size: 22px;
-	color: #f4f2db;
+	color: #fffeec;
 	/*top: 130px;*/
 	bottom: 35px;
 	padding-left: 20px;
 }
 
 .nav li:nth-child(2) a span {
-	padding-left: 17px;
+	padding-left: 20px;
 }
 
 .nav li:nth-child(3) a span {
-	padding-left: 30px;
+	padding-left: 23px;
 }
 
 .nav li.selected a span {
-	color: #4f7800;
+	color: #fffeec;
 }
 
 .nav li:first-child {
-	left: 50%;
+	left: 55%;
 }
 
 .nav li:nth-child(2) {
-	left: 60%;
-}
-
-.nav li:nth-child(3) {
-	left: 70%;
+	left: 68%;
 }
 
 .nav li:last-child {
-	left: 80%;
+	left: 81%;
 }
 
 .nav li:first-child a span {
 	padding-left: 28px;
 }
 
-/*style for section*/
+/*style for #lifeConten section*/
 section {
 	height: 539px;
 	width: 1000px;
@@ -168,31 +157,32 @@ section {
 	position: relative;
 }
 
-article {
+#lifeContent article.selected #article {
 	float: left;
 	margin-top: 1em;
+	margin-left: 3em;
 }
 
 #middle {
 	float: left;
-	margin-left: 3em;
+	margin-left: 2em;
+	margin-top: 2em;
 }
 
 aside a.left img {
 	position: absolute;
-	top: 13em;
-
+	top: 17em;
+	left: -1em;
 }
 
 aside a.right img {
 	position: absolute;
-	top: 13em;
-	right: 1em;
+	top: 17em;
+	right: -1em;
 }
 
 #year {
 	list-style: none;	
-	font-size: 19px;
 	position: absolute;
 }
 
@@ -201,59 +191,157 @@ aside a.right img {
 }
 
 #year li:first-child {
-	top: -355px;
-	left: 35px;
+	top: -435px;
+	left: 190px;
 }
 
 #year li:nth-child(2) {
-	top: -433px;
-	left: 192px;
-}
-
-#year li:nth-child(3) {
 	top: -350px;
 	left: 345px;
 }
 
-#year li:nth-child(4) {
+#year li:nth-child(3) {
 	top: -183px;
-	left: 372px;
+	left: 370px;
+}
+
+#year li:nth-child(4) {
+	top: -68px;
+	left: 256px;
 }
 
 #year li:nth-child(5) {
-	top: -68px;
-	left: 255px;
-}
-
-#year li:nth-child(6) {
 	top: -85px;
 	left: 90px;
 }
 
-#year li:nth-child(7) {
-	top: -207px;
+#year li:nth-child(6) {
+	top: -208px;
 	left: 6px;
 }
+
+#year li:nth-child(7) {
+	top: -355px;
+	left: 34px;
+}
+
+#year li.usa:nth-child(1) {top: -185px; left: 115px;}
+#year li.usa:nth-child(2) {top: -220px; left: 235px;}
+#year li.usa:nth-child(3) {top: -185px; left: 355px;}
+#year li.usa:nth-child(4) {top: -95px; left: 433px;}
+#year li.usa:nth-child(5) {top: 20px; left: 447px;}
+#year li.usa:nth-child(6) {top: 133px; left: 398px;}
+#year li.usa:nth-child(7) {top: 200px; left: 304px;}
+#year li.usa:nth-child(8) {top: 200px; left: 182px;}
+#year li.usa:nth-child(9) {top: 135px; left: 75px;}
+#year li.usa:nth-child(10) {top: 23px; left: 22px;}
+#year li.usa:nth-child(11) {top: -95px; left: 35px;}
+
+/*for japan-3 li*/
+#year li.japan3:nth-child(1) {top: ; left: ;}
+#year li.japan3:nth-child(2) {top: ; left: ;}
+#year li.japan3:nth-child(3) {top: ; left: ;}
+#year li.japan3:nth-child(4) {top: ; left: ;}
+#year li.japan3:nth-child(5) {top: ; left: ;}
+#year li.japan3:nth-child(6) {top: ; left: ;}
+#year li.japan3:nth-child(7) {top: ; left: ;}
+#year li.japan3:nth-child(8) {top: ; left: ;}
+#year li.japan3:nth-child(9) {top: ; left: ;}
+#year li.japan3:nth-child(10) {top: ; left: ;}
+#year li.japan3:nth-child(11) {top: ; left: ;}
+#year li.japan3:nth-child(12) {top: ; left: ;}
+#year li.japan3:nth-child(13) {top: ; left: ;}
+#year li.japan3:nth-child(14) {top: ; left: ;}
+#year li.japan3:nth-child(15) {top: ; left: ;}
+#year li.japan3:nth-child(16) {top: ; left: ;}
+#year li.japan3:nth-child(17) {top: ; left: ;}
+#year li.japan3:nth-child(18) {top: ; left: ;}
+#year li.japan3:nth-child(19) {top: ; left: ;}
+#year li.japan3:nth-child(20) {top: ; left: ;}
+#year li.japan3:nth-child(21) {top: ; left: ;}
+#year li.japan3:nth-child(22) {top: ; left: ;}
+#year li.japan3:nth-child(23) {top: ; left: ;}
+#year li.japan3:nth-child(24) {top: ; left: ;}
+#year li.japan3:nth-child(25) {top: ; left: ;}
+#year li.japan3:nth-child(26) {top: ; left: ;}
+#year li.japan3:nth-child(27) {top: ; left: ;}
+#year li.japan3:nth-child() {top: ; left: ;}
+#year li.japan3:nth-child() {top: ; left: ;}
+#year li.japan3:nth-child() {top: ; left: ;}
+#year li.japan3:nth-child() {top: ; left: ;}
+#year li.japan3:nth-child() {top: ; left: ;}
+#year li.japan3:nth-child() {top: ; left: ;}
+#year li.japan3:nth-child() {top: ; left: ;}
+#year li.japan3:nth-child() {top: ; left: ;}
+#year li.japan3:nth-child() {top: ; left: ;}
 
 #year li a{
 	text-decoration: none;
 	color: #4f7800;	
-	font-family:"Trebuchet MS", Georgia, serif;
+	font-family:"Myriad Pro", Arial, sans-serif;
+	font-size: 22px;
 }
 
 #bottom {
 	position: absolute;
 	margin-top: 20px;
+	margin-left: -30px;
 }
 
 /*style for novel*/
-#novelContent article {
+ul.worknav{
+	width: 100px;
+	height: 20px;
+	position: absolute;
+	right: -2em;
+	top: -3em;
+}
+
+ul.worknav li {
+	list-style: circle;
+  	float: left;
+	font-family: cursive;
+	font-weight: bold;
+}
+
+ul.worknav a {
+  	text-decoration: none;
+	font-size: 20px;
+  	color: #A7A7A7;
+	padding-right: 40px;
+}
+
+ul.worknav a:hover ,
+ul.worknav a:focus,
+ul.worknav .selected a {
+  	color: #ff9000;
+}
+
+#novelContent aside a.left img {
+	position: absolute;
+	top: 14em;
+	left: -1em;
+}
+
+#novelContent aside a.right img {
+	position: absolute;
+	top: 14em;
+	right: -1em;
+}
+
+#lifeContent article, 
+#novelContent article,
+#artContent article {
 	display: none;
+}
+
+#lifeContent article.selected {
+	display: block;
 }
 
 #novelContent article.selected {
 	display: block;
-	margin-left: 140px;
+	margin-left: 65px;
 }
 
 #novelContent article.selected ul li {
@@ -262,20 +350,28 @@ aside a.right img {
 }
 
 #novelContent article.selected ul li:nth-child(2) {
-	margin-left: 80px;
-	margin-right: 80px;
+	margin-left: 70px;
 }
 
 #novelContent article.selected ul li:nth-child(3) {
-	margin-left: 120px;
-	margin-right: 80px;
+	margin-left: 70px;
+}
+
+#novelContent article.selected ul li:nth-child(4) {
+	margin-top: 40px;
+}
+
+#novelContent article.selected ul li:nth-child(5) {
+	margin-left: 70px;
+	margin-top: 40px;
+}
+
+#novelContent article.selected ul li:nth-child(6) {
+	margin-left: 70px;
+	margin-top: 40px;
 }
 
 /*style for art*/
-#artContent article {
-	display: none;
-}
-
 #artContent article.selected {
 	display: block;
 	margin-left: 20px;
@@ -288,51 +384,52 @@ aside a.right img {
 
 /*style for expo*/
 .global{
-	margin-left: 100px;	
+	margin-left: 80px;	
 }
 
 #exhibition{
 	list-style: none;	
-	margin: 0 auto;
+	margin-top: -420px;
+	margin-left: -73px; 
 }
 
 .korea{
-	margin-left: 590px;
+	margin-left: 575px;
 	margin-top: 175px;
 }
 
 .japan{
-	margin-left: 625px;
+	margin-left: 608px;
 	margin-top: -25px;	
 }
 
 .argentina{
-	margin-left: 45px;
-	margin-top: 190px;
+	margin-left: 25px;
+	margin-top: 210px;
 }
 
 .norway{
-	margin-left: 240px;
-	margin-top: -360px;	
+	margin-left: 220px;
+	margin-top: -375px;	
 }
 
 .england{
-	margin-left: 215px;
-	margin-top: 5px;	
+	margin-left: 195px;
+	margin-top: 1px;	
 }
 
 .brasil{
-	margin-left: 82px;
+	margin-left: 62px;
 	margin-top: 230px;	
 }
 
 .usa{
-	margin-left: 10px;
+	margin-left: -10px;
 	margin-top: -260px;
 }
 
 .china{
-	margin-left: 580px;
+	margin-left: 565px;
 	margin-top: 20px;	
 }
 /*style for footer*/
@@ -344,3 +441,55 @@ footer {
 	color: #8f8f8f;
 	font-size: .8em;
 }
+
+/*below would do the flip*/
+/* Wrapper */
+.animate-wrap {
+    position: relative;
+    width: 214px; height: 214px;
+    /*background-color: #aaa;*/
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    perspective: 1000;
+    float: left;
+    margin-left: 70px;
+    margin-top: 40px;
+}
+
+/* Inputs */
+.animate-wrap input {
+    display: none;
+}
+.animate-wrap [type="radio"]:checked + .animate {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+/* Image-Wrapper */
+.animate {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+
+/* Labels */
+label {
+    position: absolute; top: 0; left: 0; z-index: 2;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.back {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+.front {
+    z-index: 1;
+}
+/*end flip*/
