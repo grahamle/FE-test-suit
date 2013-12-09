@@ -191,95 +191,93 @@ aside a.right img {
 }
 
 #year li:first-child {
-	top: -435px;
-	left: 190px;
+	top: -433px;
+	left: 195px;
 }
 
 #year li:nth-child(2) {
 	top: -350px;
-	left: 345px;
+	left: 350px;
 }
 
 #year li:nth-child(3) {
 	top: -183px;
-	left: 370px;
+	left: 373px;
 }
 
 #year li:nth-child(4) {
 	top: -68px;
-	left: 256px;
+	left: 260px;
 }
 
 #year li:nth-child(5) {
 	top: -85px;
-	left: 90px;
+	left: 95px;
 }
 
 #year li:nth-child(6) {
 	top: -208px;
-	left: 6px;
+	left: 8px;
 }
 
 #year li:nth-child(7) {
 	top: -355px;
-	left: 34px;
+	left: 38px;
 }
 
-#year li.usa:nth-child(1) {top: -185px; left: 115px;}
-#year li.usa:nth-child(2) {top: -220px; left: 235px;}
-#year li.usa:nth-child(3) {top: -185px; left: 355px;}
-#year li.usa:nth-child(4) {top: -95px; left: 433px;}
-#year li.usa:nth-child(5) {top: 20px; left: 447px;}
-#year li.usa:nth-child(6) {top: 133px; left: 398px;}
-#year li.usa:nth-child(7) {top: 200px; left: 304px;}
-#year li.usa:nth-child(8) {top: 200px; left: 182px;}
-#year li.usa:nth-child(9) {top: 135px; left: 75px;}
-#year li.usa:nth-child(10) {top: 23px; left: 22px;}
-#year li.usa:nth-child(11) {top: -95px; left: 35px;}
+#year li.usa:nth-child(1) {top: -170px; left: 210px;}
+#year li.usa:nth-child(2) {top: -140px; left: 315px;}
+#year li.usa:nth-child(3) {top: -60px; left: 385px;}
+#year li.usa:nth-child(4) {top: 45px; left: 398px;}
+#year li.usa:nth-child(5) {top: 145px; left: 355px;}
+#year li.usa:nth-child(6) {top: 200px; left: 271px;}
+#year li.usa:nth-child(7) {top: 200px; left: 165px;}
+#year li.usa:nth-child(8) {top: 143px; left: 69px;}
+#year li.usa:nth-child(9) {top: 45px; left: 20px;}
+#year li.usa:nth-child(10) {top: -60px; left: 35px;}
+#year li.usa:nth-child(11) {top: -140px; left: 105px;}
 
 /*for japan-3 li*/
-#year li.japan3:nth-child(1) {top: ; left: ;}
-#year li.japan3:nth-child(2) {top: ; left: ;}
-#year li.japan3:nth-child(3) {top: ; left: ;}
-#year li.japan3:nth-child(4) {top: ; left: ;}
-#year li.japan3:nth-child(5) {top: ; left: ;}
-#year li.japan3:nth-child(6) {top: ; left: ;}
-#year li.japan3:nth-child(7) {top: ; left: ;}
-#year li.japan3:nth-child(8) {top: ; left: ;}
-#year li.japan3:nth-child(9) {top: ; left: ;}
-#year li.japan3:nth-child(10) {top: ; left: ;}
-#year li.japan3:nth-child(11) {top: ; left: ;}
-#year li.japan3:nth-child(12) {top: ; left: ;}
-#year li.japan3:nth-child(13) {top: ; left: ;}
-#year li.japan3:nth-child(14) {top: ; left: ;}
-#year li.japan3:nth-child(15) {top: ; left: ;}
-#year li.japan3:nth-child(16) {top: ; left: ;}
-#year li.japan3:nth-child(17) {top: ; left: ;}
-#year li.japan3:nth-child(18) {top: ; left: ;}
-#year li.japan3:nth-child(19) {top: ; left: ;}
-#year li.japan3:nth-child(20) {top: ; left: ;}
-#year li.japan3:nth-child(21) {top: ; left: ;}
-#year li.japan3:nth-child(22) {top: ; left: ;}
-#year li.japan3:nth-child(23) {top: ; left: ;}
-#year li.japan3:nth-child(24) {top: ; left: ;}
-#year li.japan3:nth-child(25) {top: ; left: ;}
-#year li.japan3:nth-child(26) {top: ; left: ;}
-#year li.japan3:nth-child(27) {top: ; left: ;}
-#year li.japan3:nth-child() {top: ; left: ;}
-#year li.japan3:nth-child() {top: ; left: ;}
-#year li.japan3:nth-child() {top: ; left: ;}
-#year li.japan3:nth-child() {top: ; left: ;}
-#year li.japan3:nth-child() {top: ; left: ;}
-#year li.japan3:nth-child() {top: ; left: ;}
-#year li.japan3:nth-child() {top: ; left: ;}
-#year li.japan3:nth-child() {top: ; left: ;}
-#year li.japan3:nth-child() {top: ; left: ;}
+#year li.japan3 a{
+	font-size: 1.1em
+}
+/*大姐，要加单位 px 才能用的好伐，你只些数字是不行的，
+现在没时间一个个帮你弄，你自己弄吧，我给你弄到1983年的，
+还有如果嫌字号太大，在上面改；
+算了，我还是帮你改完掉算了*/
+#year li.japan3:nth-child(1) {top: -455px; left: 205px;}
+#year li.japan3:nth-child(2) {top: -448px; left: 255px;}
+#year li.japan3:nth-child(3) {top: -431px; left: 300px;}
+#year li.japan3:nth-child(4) {top: -405px; left: 339px;}
+#year li.japan3:nth-child(5) {top: -370px; left: 370px;}
+#year li.japan3:nth-child(6) {top: -335px; left: 390px;}
+#year li.japan3:nth-child(7) {top: -292px; left: 404px;}
+#year li.japan3:nth-child(8) {top: -244px; left: 404px;}
+#year li.japan3:nth-child(9) {top: -211px; left: 400px;}
+#year li.japan3:nth-child(10) {top: -170px; left: 386px;}
+#year li.japan3:nth-child(11) {top: -130px; left: 365px;}
+#year li.japan3:nth-child(12) {top: -96px; left: 332px;}
+#year li.japan3:nth-child(13) {top: -70px; left: 292px;}
+#year li.japan3:nth-child(14) {top: -58px; left: 251px;}
+#year li.japan3:nth-child(15) {top: -53px; left: 203px;}
+#year li.japan3:nth-child(16) {top: -60px; left: 160px;}
+#year li.japan3:nth-child(17) {top: -76px; left: 113px;}
+#year li.japan3:nth-child(18) {top: -100px; left: 75px;}
+#year li.japan3:nth-child(19) {top: -138px; left: 43px;}
+#year li.japan3:nth-child(20) {top: -179px; left: 19px;}
+#year li.japan3:nth-child(21) {top: -230px; left: 7px;}
+#year li.japan3:nth-child(22) {top: -278px; left: 8px;}
+#year li.japan3:nth-child(23) {top: -319px; left: 17px;}
+#year li.japan3:nth-child(24) {top: -360px; left: 37px;}
+#year li.japan3:nth-child(25) {top: -397px; left: 67px;}
+#year li.japan3:nth-child(26) {top: -425px; left: 109px;}
+#year li.japan3:nth-child(27) {top: -447px; left: 156px;}
 
 #year li a{
 	text-decoration: none;
 	color: #4f7800;	
 	font-family:"Myriad Pro", Arial, sans-serif;
-	font-size: 22px;
+	font-size: 19px;
 }
 
 #bottom {
@@ -384,7 +382,8 @@ ul.worknav .selected a {
 
 /*style for expo*/
 .global{
-	margin-left: 80px;	
+	margin-left: 80px;
+	position: relative;
 }
 
 #exhibition{
@@ -393,44 +392,110 @@ ul.worknav .selected a {
 	margin-left: -73px; 
 }
 
+.korea, .japan, .argentina, .norway, .england, .brazil,
+.usa, .china {
+	position: absolute;
+}
+
+div.show {
+	/*display: inline;*/
+	position: absolute;
+}
+
 .korea{
-	margin-left: 575px;
-	margin-top: 175px;
+	top: -163px;
+	left: 517px;
+}
+.korea div {
+	display: none;
+}
+.korea div.show {
+	top: 40px;
+	left: -138px;
 }
 
 .japan{
-	margin-left: 608px;
-	margin-top: -25px;	
+	top: -158px;
+	left: 550px;
+}
+.japan div {
+	display: none;
+}
+.japan div.show {
+	left: 30px;
+	top: -138px
 }
 
 .argentina{
-	margin-left: 25px;
-	margin-top: 210px;
+	top: 100px;
+	left: -60px;
+}
+.argentina div {
+	display: none;
+}
+.argentina div.show {
+	left: 30px;
+	top: -138px
 }
 
 .norway{
-	margin-left: 220px;
-	margin-top: -375px;	
+	top: -260px;	
+	left: 170px;
+}
+.norway div {
+	display: none;
+}
+.norway div.show {
+	left: 30px;
+	top: -108px
 }
 
 .england{
-	margin-left: 195px;
-	margin-top: 1px;	
+	top: -230px;
+	left: 125px;	
+}
+.england div {
+	display: none;
+}
+.england div.show {
+	top: 30px;
+	left: -138px;
 }
 
-.brasil{
-	margin-left: 62px;
-	margin-top: 230px;	
+.brazil{
+	top: 10px;
+	left: -20px;
+}
+.brazil div {
+	display: none;
+}
+.brazil div.show {
+	left: 30px;
+	top: -138px
 }
 
 .usa{
-	margin-left: -10px;
-	margin-top: -260px;
+	top: -170px;
+	left: -160px;
+}
+.usa div {
+	display: none;
+}
+.usa div.show {
+	left: 30px;
+	top: -138px
 }
 
 .china{
-	margin-left: 565px;
-	margin-top: 20px;	
+	top: -138px;
+	left: 450px;
+}
+.china div {
+	display: none;
+}
+.china div.show {
+	top: 30px;
+	left: -138px;
 }
 /*style for footer*/
 footer {

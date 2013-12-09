@@ -21,6 +21,12 @@
       $('#lifeContent').find('aside a.right').click(function(e) {
         e.preventDefault();
         var current = $('article.selected');
+        if (current.hasClass('first')) {
+          $('#ph2').attr('src', 'images/circle2.png');
+        } else if (current.hasClass('second')) {
+          $('#ph3').attr('src', 'images/circle3.png');
+        }
+
         if (!current.hasClass('end')) {
           $('article.selected').next().addClass('selected');
           current.removeClass('selected');
@@ -31,6 +37,12 @@
       $('#lifeContent').find('aside a.left').click(function(e) {
         e.preventDefault();
         var current = $('article.selected');
+        if (current.hasClass('third')) {
+          $('#ph2').attr('src', 'images/circle2.png');
+        } else if (current.hasClass('second')) {
+          $('#ph1').attr('src', 'images/circle1.png');
+        }
+
         if (!current.hasClass('start')) {
           $('article.selected').prev().addClass('selected');
           current.removeClass('selected');
@@ -74,9 +86,9 @@
         <a class="left" href="#"><img src="images/arrowL.png" /></a>
       </aside>
       
-      <article class="selected start">
+      <article class="selected start first">
         <div id="article">
-          <img class="placeholder" src="images/circle1.png" />
+          <img class="placeholder" id="ph1" src="images/circle1.png" />
         </div>
           
         <div id="middle">
@@ -94,14 +106,15 @@
         </div>
       </article>
 
-      <article>
+      <article class="second">
         <div id="article">
-          <img class="placeholder" src="images/circle1.png" />
+          <img class="placeholder" id="ph2" src="images/circle2.png" />
         </div>
         <div id="middle">
           <img src="images/usa1.png" />
           <ul id="year">
             <li class="usa"><a href="images/life/1957.png">1957</a></li>
+            <li class="usa"><a href="images/life/1959.png">1959</a></li>
             <li class="usa"><a href="images/life/1960.png">1960</a></li>
             <li class="usa"><a href="images/life/1961.png">1961</a></li>
             <li class="usa"><a href="images/life/1963.png">1963</a></li>
@@ -110,16 +123,15 @@
             <li class="usa"><a href="images/life/1966.png">1966</a></li>
             <li class="usa"><a href="images/life/1967.png">1967</a></li>
             <li class="usa"><a href="images/life/1968.png">1968</a></li>
-            <li class="usa"><a href="images/life/1968.png">1970</a></li>
             <li class="usa"><a href="images/life/1971.png">1971</a></li>
           </ul>
           <img id="bottom" src="images/explain.png" />
         </div>
       </article>
 
-      <article class="end">
+      <article class="end third">
         <div id="article">
-          <img class="placeholder" src="images/circle1.png" />
+          <img class="placeholder" id="ph3" src="images/circle3.png" />
         </div>
         <div id="middle">
           <img src="images/Japan-3a.png" />
@@ -150,7 +162,7 @@
             <li class="japan3"><a href="images/life/2006.png">2006</a></li>
             <li class="japan3"><a href="images/life/2008.png">2008</a></li>
             <li class="japan3"><a href="images/life/2009.png">2009</a></li>
-            <li class="japan3"><a href="images/life/2011.png">2011</a></li>           
+            <li class="japan3"><a href="images/life/2011.png">2011</a></li>
           </ul>
           <img id="bottom" src="images/explain.png" />
         </div>

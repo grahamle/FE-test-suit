@@ -39,48 +39,56 @@
         
         <ul id="exhibition">
         	<li class="korea">
+            <div><img src="images/expo/korea.png"></div>
             <a href="#">
             <img src="images/dot1.png" width="27" height="27" alt="Korea" />
             </a>
            </li>
            
            <li class="japan">
+            <div><img src="images/expo/japan.png"></div>
             <a href="#">
             <img src="images/dot2.png" width="27" height="27" alt="Japan" />
             </a>
            </li>
            
             <li class="argentina">
+              <div><img src="images/expo/buenosAires.png"></div>
             <a href="#">
             <img src="images/dot3.png" width="27" height="27" alt="Argentina" />
             </a>
            </li>
            
             <li class="norway">
+              <div><img src="images/expo/norway.png"></div>
             <a href="#">
             <img src="images/dot4.png" width="27" height="27" alt="Norway" />
             </a>
            </li>
            
             <li class="england">
+              <div><img src="images/expo/england.png"></div>
             <a href="#">
             <img src="images/dot5.png" width="27" height="27" alt="JEngland" />
             </a>
            </li>
            
-            <li class="brasil">
+            <li class="brazil">
+              <div><img src="images/expo/brazil.png"></div>
             <a href="#">
             <img src="images/dot6.png" width="27" height="27" alt="Brasil" />
             </a>
            </li>
            
             <li class="usa">
+              <div><img src="images/expo/newyork.png"></div>
             <a href="#">
             <img src="images/dot7.png" width="27" height="27" alt="United States" />
             </a>
            </li>
            
             <li class="china">
+              <div><img src="images/expo/china.png"></div>
             <a href="#">
             <img src="images/dot8.png" width="27" height="27" alt="China" />
             </a>
@@ -99,5 +107,22 @@
   <script type="text/javascript" src="js/jquery-2.0.2.js"></script>
   <script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
   <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function(){
+      var selectors = [
+        '.korea', '.japan', '.argentina', '.norway',
+        '.england', '.brazil', '.usa', '.china'
+      ];
+      $.each(selectors, function(index, selector) {
+        $(selector).find('a').mousemove(function() {
+          var currentDiv = $(selector).find('div');           
+            $(selector).find('div').addClass('show').css('display', 'block');
+        }).hover(function() {
+          var currentDiv = $(selector).find('div');
+            $(selector).find('div').removeClass('show').css('display', 'none');
+        })
+      });
+    });
+  </script>
 </body>
 </html>
