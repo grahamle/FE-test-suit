@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+  <title>Fun with Table</title>
+  <link rel="stylesheet" type="text/css" href="simple.css" />
+</head>
+<body>
+  <table id="sales" summary="Quarterly Sales (stated in millions of dollars)">
+  	<caption>Quarterly Sales*</caption>
+    <thead>
+      <tr>
+        <th>Companies</th>
+        <th>Q1</th>
+        <th>Q2</th>
+        <th>Q3</th>
+        <th>Q4</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Company A</th>
+        <td>$621</td>
+        <td>$942</td>
+        <td>$224</td>
+        <td>$486</td>
+      </tr>
+      <tr>
+        <th>Company B</th>
+        <td>$147</td>
+        <td>$1,325</td>
+        <td>$683</td>
+        <td>$524</td>
+      </tr>
+      <tr>
+        <th>Company C</th>
+        <td>$135</td>
+        <td>$2,342</td>
+        <td>$33</td>
+        <td>$464</td>
+      </tr>
+      <tr>
+        <th>Company D</th>
+        <td>$164</td>
+        <td>$332</td>
+        <td>$331</td>
+        <td>$438</td>
+      </tr>
+      <tr>
+        <th>Company E</th>
+        <td>$199</td>
+        <td>$902</td>
+        <td>$336</td>
+        <td>$1,427</td>
+      </tr>
+    </tbody>
+  </table>
+  <p class="footnote">*Stated in millions of dollars</p>
+  <script type="text/javascript">
+  	var sales = document.getElementById('sales');
+  	var rows = sales.rows;
+  	console.log(rows)
+  	console.log(sales.tHead)
+  	console.log(sales.tBodies)
+  	console.log(sales.tBodies[0])
+  	var headRow = sales.tHead.rows;
+  	var bodyRows = sales.tBodies[0].rows;
+  	var row = bodyRows[0];
+  	console.log(row)
+
+  	// 效率更高一点
+  	var cellsA = sales.rows[1].cells;
+  	console.log(cellsA)
+  	// 效率低一点
+  	var cellsB = sales.rows[1].getElementsByTagName('*');
+  	console.log(cellsB)
+  </script>
+</body>
+</html>
