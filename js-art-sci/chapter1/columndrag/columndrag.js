@@ -184,7 +184,7 @@ ColumnDrag.prototype.keyup = function(e) {
   switch (e.keyCode) {
   	case 37:  // 向左的方向键
   	  this.mousedown({target : elem}); // 调用 mousedown，传入一个对象（模拟的事件对象）
-  	  var prevCellIdx = elm.cIdx == 0 ? 0 : elm.cIdx - 1;
+  	  var prevCellIdx = elem.cIdx == 0 ? 0 : elem.cIdx - 1;
   	  this.prevX = 2;
   	  this.mousemove({
   	  	target : headings[prevCellIdx],
@@ -195,7 +195,7 @@ ColumnDrag.prototype.keyup = function(e) {
   	break;
   	case 39:  // 向右的方向键
   	  this.mousedown({target : elem});
-  	  var nextCellIdx = elm.cIdx == headings.length-2 ? headings.length-2 : elm.cIdx + 1;
+  	  var nextCellIdx = elem.cIdx == headings.length-2 ? headings.length-2 : elem.cIdx + 1;
   	  this.prevX = 0;
   	  this.mousemove({
   	  	target : headings[nextCellIdx],
