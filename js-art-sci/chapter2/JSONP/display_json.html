@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Displaying JSON</title>
+	<link rel="stylesheet" href="deliciousbadge.css">
+  <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+<script src="http://grahamle:lyhhit044702@api.delicious.com/v1/posts/recent?callback=show"></script>
+<script>
+  function show(xmldoc) {
+    xmlDoc = $.parseXML(xmldoc);
+    $xml = $(xmlDoc);
+    console.log($xml)
+  }
+  // 第一个 <script> 能够返回数据，但是现在的接口提供的是 XML ，所以用JSONP就行不通了。所以得用XHR
+</script>
+
+</body>
+</html>
