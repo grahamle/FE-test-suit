@@ -1,0 +1,47 @@
+
+/* GENERAL ------------------------------------------------------------------ */
+
+/* Zero default margin & padding around common elements */
+body, dd, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, li, ol, p, ul
+{
+	margin: 0;
+	border: 0 none transparent;
+	padding: 0;
+}
+
+body
+{
+	background-color: #FFFFFF;
+	color: #000000;
+	line-height: 1.5;
+	font-family: "Swiss 721 Thin BT", "Swis721 Th BT", Arial, Helvetica, sans-serif;
+	font-size: 80%;
+	text-align: center;
+}
+
+a:link
+{
+	color: #003399;
+}
+
+a:visited
+{
+	color: #B266B2;
+}
+
+a:hover
+{
+	text-decoration: none;
+}
+
+
+
+
+/* CONTENT ------------------------------------------------------------------ */
+
+h1
+{
+	margin: 0.5em 0 0 0;
+	font-size: 300%;
+	font-weight: normal;
+}
