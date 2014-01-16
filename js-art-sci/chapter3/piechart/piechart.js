@@ -4,6 +4,7 @@ function PieChart (data, radius, id) {
 
   this.startColor = [204, 0, 0];
   this.endColor = [115, 12, 243];
+  this.shadowOffset = 7;
 
   this.canvas = document.getElementById(id);
 
@@ -48,4 +49,16 @@ PieChart.prototype.draw = function() {
 
   	dataSubTotal += this.data[i];
   }
+
+  // 绘制阴影
+  this.context.beginPath();
+  this.context.moveTo(cx + this.shadowOffset, cy + this.shadowOffset);
+  this.context.arc(cx + this.shadowOffset, cy + this.shadowOffset, this.radius, 0, Math.PI * 2, false);
+  this.context.closePath();
+
+  // 利用 globalCompositeOperation 改变已有的图形上下文，即改变新绘制的图形与之前已经绘制的组合关系
+  // 即canvas上新形状如何与已有的图形交互，有12个值，默认：source-over；
+  this.context.globalCompositeOperation = 'destination-over';
+  this.context.fillStyle = 'rgba(0, 0, 0, 0.25)';
+  this.context.fill();
 }
