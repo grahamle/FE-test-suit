@@ -10,5 +10,17 @@
   	Pie Chart
   </h1>
   <canvas id="chart" width="400" height="400"></canvas>
+  <script type="text/javascript">
+  	window.onload = init;
+  	function init() {
+  	  var data = [Math.random(), Math.random(), Math.random(), Math.random(), Math.random(), Math.random()];
+  	  var radius = 180;
+  	  var id = 'chart';
+  	  // setTimeout 是为了修复 FF 中不渲染 canvas 的一个bug，通过设置一个短延时解决这个问题
+  	  setTimeout(function() {
+  	  	new PieChart(data, radius, id);
+  	  },1);
+  	}
+  </script>
 </body>
 </html>
