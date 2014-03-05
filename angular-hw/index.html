@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="hw">
+<head>
+  <title>Homework Preview</title>
+  <link href="styles/bootstrap.css" rel="stylesheet">
+  <link href="styles/hw.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <h2>作业系统</h2>
+  </header>
+
+  <div class="load">Loading...</div>
+
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span2">
+        <!--Sidebar-->
+        <div id="focus"><a href="/#/new">新建作业</a></div>
+        <div><a href="/#/">作业列表</a></div>
+
+      </div>
+      <div class="span10">
+        <div ng-view></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
