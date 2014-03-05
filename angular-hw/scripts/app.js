@@ -10,7 +10,9 @@ app.config(['$routeProvider', function($routeProvider) {
           return MultiHwLoader();
       	}
       },
-      controller: 'ListCtrl',
+      controller: ['$scope', 'homeworks', function($scope, homeworks) {
+  		$scope.homeworks = homeworks;
+	  }],
       templateUrl: '/views/list.html'
     }).when('/edit/:hwId', {
       resolve: {
@@ -18,7 +20,18 @@ app.config(['$routeProvider', function($routeProvider) {
       	  return HwLoader();
       	}
       },
-      controller: 'EditCtrl',
+      controller: ['$scope', '$location', 'homework', function($scope, $location, homework) {
+      	$scope.homework = homework;
+      	$scope.save = function() {
+      	  $scope.homework.$save(function(homework) {
+      	  	$location.path('/view/' + homework.id);
+      	  });
+      	};
+      	$scope.remove = function() {
+      	  delete $scope.homework;
+      	  $location.path('/');
+      	};
+      }],
       templateUrl: '/views/hwForm.html'
     }).when('/view/:hwId', {
       resolve: {
@@ -26,10 +39,24 @@ app.config(['$routeProvider', function($routeProvider) {
       	  return HwLoader();
       	}
       },
-      controller: 'ViewCtrl',
+      controller: ['$scope', '$location', 'homework', function($scope, $location, homework) {
+  		$scope.homework = homework;
+  		$scope.edit = function() {
+  		  $location.path('/edit/' + homework.id);
+    	};
+  	  }],
       templateUrl: '/views/viewHw.html'
     }).when('/new', {
-      controller: 'NewCtrl',
+      controller: ['$scope', '$location', 'Hw', function($scope, $location, Hw) {
+      	$scope.homework = new Hw({
+      	  items: [] // TODO
+      	});
+      	$scope.save = function() {
+      	  $scope.homework.$save(function(homework) {
+      	  	$location.path('/view/' + homework.id);
+      	  });
+      	};
+      }],
       templateUrl: '/views/hwForm.html'
     }).otherwise({
       redirectTo: '/'
