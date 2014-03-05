@@ -10,7 +10,8 @@ app.config(['$routeProvider', function($routeProvider) {
           return MultiHwLoader();
       	}
       },
-      controller: 'ListCtrl'
+      controller: 'ListCtrl',
+      templateUrl: '/views/list.html'
     }).when('/edit/:hwId', {
       resolve: {
       	homework: function(HwLoader) {
