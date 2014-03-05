@@ -1,0 +1,47 @@
+<h2>Edit Homework</h2>
+<form name="hwForm" ng-submit="save()" class="form-horizontal">
+  <div class="control-group">
+  	<label class="control-label" for="title">Title:</label>
+  	<div class="controls">
+  	  <input ng-model="homework.title" class="input-xlarge" id="title" focus>
+  	</div>
+  </div>
+
+  <div class="control-group">
+  	<label class="control-label" for="due">Due in:</label>
+  	<div class="controls">
+  	  <input ng-model="homework.due" class="input-xlarge" id="due">
+  	</div>
+  </div>
+
+  <div class="control-group">
+  	<label class="control-label" for="items">Include:</label>
+  	<div class="controls">
+  	  <ul id="items" class="unstyled" ng-controller="itemsCtrl">
+  	  	<li ng-repeat="item in homework.items">
+  	  	  <input ng-model="item" class="input-xlarge">
+  	  	  <button type="button" class="btn btn-mini" ng-click="removeItem($index)"><i class="icon-minus-sign"></i> Delete </button>
+  	  	</li>
+  	  	<button type="button" class="btn btn-mini" ng-click="addItem()"><i class="icon-plus-sign"></i> Add </button>
+  	  </ul>
+  	</div>
+  </div>
+
+  <div class="control-group">
+  	<label class="control-label" for="keys">Keys:</label>
+  	<div class="controls">
+  	  <ul id="keys" class="unstyled" ng-controller="keysCtrl">
+  	  	<li ng-repeat="key in homework.keys">
+  	  	  <input ng-model="key" class="input-small">
+  	  	  <button type="button" class="btn btn-mini" ng-click="removeItem($index)"><i class="icon-minus-sign"></i> Delete </button>
+  	  	</li>
+  	  	<button type="button" class="btn btn-mini" ng-click="addItem()"><i class="icon-plus-sign"></i> Add </button>
+  	  </ul>
+  	</div>
+  </div>
+
+  <div class="form-actions">
+  	<button class="btn btn-primary">Save</button>
+  	<button type="button" ng-click="remove()" ng-show="!homework.id" class="btn">Delete</button>
+  </div>
+</form>

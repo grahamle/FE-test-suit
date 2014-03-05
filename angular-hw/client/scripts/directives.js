@@ -15,3 +15,11 @@ directives.directive('loadbar', ['$rootScope', function($rootScope) {
   	}
   };
 }]);
+
+directives.directive('focus', function() {
+  return {
+    link: function(scope, iElem, iAttrs) {
+      iElem[0].focus();
+    }
+  };
+});

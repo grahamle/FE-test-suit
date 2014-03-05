@@ -62,3 +62,13 @@ app.config(['$routeProvider', function($routeProvider) {
       redirectTo: '/'
     });
 }]);
+
+app.controller('itemsCtrl', ['$scope', function($scope) {
+  $scope.addItem = function() {
+    var items = $scope.homework.items;
+    items[items.length] = '';
+  };
+  $scope.removeItem = function(index) {
+    $scope.homework.items.splice(index, 1);
+  };
+}]);
